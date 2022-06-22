@@ -125,7 +125,7 @@ class Calculator {
 
     updateDisplay() {
         this.currentOperandTextElement.innerText =
-            this.answer
+            this.getDisplayNumber(this.answer)
         if (this.operation != null) {
             this.previousOperandTextElement.innerText =
                 `${ this.getDisplayNumber(this.previousOperand)} ${this.operation} ${this.getDisplayNumber(this.currentOperand) }`
