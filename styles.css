@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 65%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right bottom, #00AAFF, #3242a8);
+}
+
+.calculator-grid {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 90px);
+}
+
+.calculator-grid>button {
+    cursor: pointer;
+    font-size: 3rem;
+    outline: none;
+}
+
+/**
+ *  Changes color when cursor hovers over the button
+ */
+.calculator-grid>button.ac:hover {
+    background-color: rgba(252, 200, 126, .7);
+}
+.calculator-grid>button.delete:hover {
+    background-color: rgba(252, 200, 126, .7);
+}
+.calculator-grid>button.operation:hover {
+    background-color: rgba(199, 255, 214, 0.75);
+}
+.calculator-grid>button.number:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.calculator-grid>button.equals:hover {
+    background-color: rgba(0, 177, 64, .6);
+}
+.calculator-grid>button.sign:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/**
+ * Color of the display
+ */
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 2.5rem;
+}
+.output .current-operand {
+    color: white;
+    font-size: 3.5rem;
+}
+
+/*
+ * Aspects of the theme toggle
+ */
+.toggle {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #eee8e1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.toggle i {
+    font-size: 3rem;
+    color: #777;
+}
+.calculator-grid.dark .toggle {
+    background-color: #464646;
+}
+.container.dark .toggle i {
+    color: #ddd;
+}
+
+/*
+ * Calculator - Dark Theme
+ */
+.calculator-grid.dark {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right bottom, #0087cb, #273586);
+}
+.calculator-grid.dark .ac {
+    background-color: #2f3335;
+    border: none;
+    color: #ffa72b;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+.calculator-grid.dark .delete {
+    background-color: #2f3335;
+    border: none;
+    color: #ffa72b;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+.calculator-grid.dark .operation {
+    background-color: #2f3335;
+    border: none;
+    color: #4cfd8e;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+.calculator-grid.dark .number {
+    background-color: #3b4042;
+    border: none;
+    color: #4ba0f4;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+.calculator-grid.dark .equals {
+    background-color: #008e33;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+.calculator-grid.dark .sign {
+    background-color: #3b4042;
+    border: none;
+    color: #4ba0f4;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+/**
+ *  Dark Mode - changes color when cursor hovers over the button
+ */
+.calculator-grid.dark>button.ac:hover {
+    background-color: rgba(92, 86, 57, 255);
+}
+.calculator-grid.dark>button.delete:hover {
+    background-color: rgba(92, 86, 57, 255);
+}
+.calculator-grid.dark>button.operation:hover {
+    background-color: rgba(6, 86, 69, 255);
+}
+.calculator-grid.dark>button.number:hover {
+    background-color: rgba(20, 57, 86, 255);
+}
+.calculator-grid.dark>button.equals:hover {
+    background-color: rgba(13, 112, 89, 255);
+}
+.calculator-grid.dark>button.sign:hover {
+    background-color: rgba(20, 57, 86, 255);
+}

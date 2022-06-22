@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head> 
+
+<body>
+    <div class="calculator-grid">
+        <div class="toggle">
+            <i class="far fa-sun"></i>
+        </div>
+        
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </div>
+        <button data-all-clear class="ac">AC</button>
+        <button data-delete class="delete">⌫</button>
+        <button data-operation class="operation">^</button>
+        <button data-operation class="operation">÷</button>
+        <button data-number class="number">1</button>
+        <button data-number class="number">2</button>
+        <button data-number class="number">3</button>
+        <button data-operation class="operation">×</button>
+        <button data-number class="number">4</button>
+        <button data-number class="number">5</button>
+        <button data-number class="number">6</button>
+        <button data-operation class="operation">-</button>
+        <button data-number class="number">7</button>
+        <button data-number class="number">8</button>
+        <button data-number class="number">9</button>
+        <button data-operation class="operation">+</button>
+        <button data-sign class="sign">+/-</button>
+        <button data-number class="number">0</button>
+        <button data-number class="number">.</button>
+        <button data-equals class="equals">=</button>
+    </div>
+</body>
+
+<style>
+    .output {
+        grid-column: 1 / -1;
+        background-color: rgba(0, 0, 0, .45);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 10px;
+        word-wrap: break-word;
+        word-break: break-all;
+        border-radius: 16px;
+    }
+    .ac {
+        background-color: #d6d6d6;
+        border: none;
+        color: #e68600;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .delete {
+        background-color: #d6d6d6;
+        border: none;
+        color: #e68600;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .operation {
+        background-color: #d6d6d6;
+        border: none;
+        color: #00b140;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .number {
+        background-color: #c1c1c1;
+        border: none;
+        color: #4285F4;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .equals {
+        background-color: #00b140;
+        border: none;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .sign {
+        background-color: #c1c1c1;
+        border: none;
+        color: #4285F4;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+</style>
+
+</html>
