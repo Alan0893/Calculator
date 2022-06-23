@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    transition: all .3s ease;
 }
 
 html {
@@ -69,7 +70,7 @@ body {
 /*
  * Aspects of the theme toggle
  */
-.toggle {
+.theme {
     width: 3.75rem;
     height: 3.75rem;
     background-color: #eee8e1;
@@ -81,15 +82,12 @@ body {
     border-radius: 50%;
     cursor: pointer;
 }
-.toggle i {
+.theme i {
     font-size: 3rem;
     color: #777;
 }
-.calculator-grid.dark .toggle {
+.calculator-grid.dark .theme {
     background-color: #464646;
-}
-.container.dark .toggle i {
-    color: #ddd;
 }
 
 /*
@@ -193,4 +191,80 @@ body {
 }
 .calculator-grid.dark>button.sign:hover {
     background-color: rgba(20, 57, 86, 255);
+}
+
+/*
+ * Aspects of the info toggle
+ */
+.info {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #eee8e1;
+    position: absolute;
+    top: 10rem;
+    right: 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.info i {
+    font-size: 2.5rem;
+    color: #777;
+}
+.calculator-grid.dark .info {
+    background-color: #464646;
+}
+/*
+ * Extra info 
+ */
+.extra-info {
+    display: none;
+    line-height: 20px;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 50px;
+}
+.calculator-grid.dark .extra-info {
+    color: white;
+}
+.info:hover .extra-info {
+    display: inline-block;
+}
+/*
+ * Activates when cursor is hovering over the toggle
+ */
+.info:hover {
+    background-color: white;
+    width: 175px;
+    height: 200px;
+    text-align: left !important;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.github {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #eee8e1;
+    position: absolute;
+    top: 5.5rem;
+    right: 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.github i {
+    font-size: 2.9rem;
+    color: #777;
+}
+
+.calculator-grid.dark .github {
+    background-color: #464646;
 }

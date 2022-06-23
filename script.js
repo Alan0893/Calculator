@@ -144,7 +144,8 @@ const allClearButton = document.querySelector('[data-all-clear]')
 const signButton = document.querySelector('[data-sign]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
-const toggle = document.querySelector(".toggle");
+const theme = document.querySelector(".theme");
+const github = document.querySelector(".github");
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
@@ -184,8 +185,12 @@ signButton.addEventListener('click', button => {
     calculator.updateDisplay()
 })
 
-toggle.addEventListener("click", () => {
+theme.addEventListener('click', () => {
     calc.classList.toggle("dark")
-        ? (toggle.firstElementChild.className = "far fa-moon")
-        : (toggle.firstElementChild.className = "far fa-sun");
+        ? (theme.firstElementChild.className = "far fa-moon")
+        : (theme.firstElementChild.className = "far fa-sun");
 });
+
+github.addEventListener('click', () => {
+    location.href = 'https://github.com/Alan0893/Calculator'
+})
