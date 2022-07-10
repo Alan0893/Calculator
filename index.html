@@ -12,34 +12,68 @@
 </head> 
 
 <body>
+    <!--NAVIGATION MENU-->
+    <div id="menu" class="nav">
+        <!--CLOSE BUTTON - NAVIGATION MENU-->
+        <a class="closebtn" onclick="closeNav()">&times;</a>
+
+        <button class="dropdown">About</button>
+        <div class="panel">
+            <h4>Coded by: Alan</h4>
+            <p>
+                This calculator was initially created as a small project for me to explore a new language. By creating this calculator,
+                I was able to gain basic knowledge of HTML & CSS, while furthering my knowledge in JavaScript functions and its
+                interactivity.
+                <br><br>
+                ➤ This calculator has the ability to solve simple mathematical operations. Using basic operations, this calculator can
+                calculate a variety of equations, ranging from addition to simple exponential expressions.
+                <br>
+                <i class="fa-brands fa-html5"></i>
+                <i class="fa-brands fa-css3"></i>
+                <i class="fa-brands fa-js-square"></i>
+            </p>
+        </div>
+
+        <!--LINKS BUTTON-->
+        <button class="dropdown">Links</button>
+        <div class="panel">
+            <a rel="noopener" href="https://github.com/Alan0893/Calculator" target="_blank" class="link-github">
+                <i class="fa-brands fa-github"></i> Github
+            </a>
+        </div>
+
+        <!--CONTACT BUTTON-->
+        <button class="dropdown">Contact</button>
+        <div class="panel">
+            <a class="name">Alan</a><br>
+            <a rel="noopener" href="tel:9173886756" target="_blank" class="link-call">
+                <i class="fa-solid fa-phone"></i> (917) 388-6756
+            </a><br>
+            <a rel="noopener" href="mailto:alanl07905@gmail.com" target="_blank" class="link-mail">
+                <i class="fa-solid fa-envelope"></i> alanl07905@gmail.com
+            </a><br>
+            <a rel="noopener" href="https://maps.google.com/maps/place/Elmhurst,+Queens,+NY/" target="_blank" class="link-loc">
+                <i class="fa-solid fa-location-dot"></i> Elmhurst Queens, NY
+            </a>
+        </div>
+    </div>
+    <!--OPEN BUTTON - NAVIGATION MENU-->
+    <span class="initialNav" onclick="openNav()">&#9776;</span>
+    
+    <!--CALCULATOR-->
     <div class="calculator-grid">
+        <!--THEME TOGGLE-->
         <div class="theme">
             <i class="far fa-sun"></i>
         </div>
 
-        <div class="info">
-            <i class="fa-solid fa-info"></i>
-            <span class="extra-info">
-                <h4 style="font-family: verdana">Coded by: Alan</h4>
-                <p>
-                    With the ability to solve basic mathematical operations, this calculator was coded
-                    using a combination of HTML, CSS, & JavaScript.
-                    <br>
-                    <i class="fa-brands fa-html5"></i>
-                    <i class="fa-brands fa-css3"></i>
-                    <i class="fa-brands fa-js-square"></i>
-                </p>
-            </span>
-        </div>
-
-        <div class="github">
-            <i class="fa-brands fa-github"></i>
-        </div>
-        
+        <!--CALCULATOR DISPLAY-->
         <div class="output">
             <div data-previous-operand class="previous-operand"></div>
             <div data-current-operand class="current-operand"></div>
         </div>
+
+        <!--CALCULATOR BUTTONS-->
         <button data-all-clear class="ac">AC</button>
         <button data-delete class="delete">⌫</button>
         <button data-operation class="operation">^</button>
@@ -64,18 +98,9 @@
 </body>
 
 <style>
-    .output {
-        grid-column: 1 / -1;
-        background-color: rgba(0, 0, 0, .45);
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-around;
-        flex-direction: column;
-        padding: 10px;
-        word-wrap: break-word;
-        word-break: break-all;
-        border-radius: 16px;
-    }
+    /* ***************************************************************************************
+     * LIGHT MODE 
+     */
     .ac {
         background-color: #d6d6d6;
         border: none;
@@ -140,6 +165,81 @@
         background-color: #c1c1c1;
         border: none;
         color: #4285F4;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    /* ***************************************************************************************
+     * DARK MODE 
+     */
+    .dark .ac {
+        background-color: #2f3335;
+        border: none;
+        color: #ffa72b;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .dark .delete {
+        background-color: #2f3335;
+        border: none;
+        color: #ffa72b;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .dark .operation {
+        background-color: #2f3335;
+        border: none;
+        color: #4cfd8e;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .dark .number {
+        background-color: #3b4042;
+        border: none;
+        color: #4ba0f4;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .dark .equals {
+        background-color: #008e33;
+        border: none;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .dark .sign {
+        background-color: #3b4042;
+        border: none;
+        color: #4ba0f4;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;

@@ -31,46 +31,42 @@ class Calculator {
     }
 
     /**
-     * 
-     * @param {String} number The number entered
-     * @returns 
      * @description Appends the number to the current operand
+     * @param {String} number The number entered
      */
     appendNumber(number) {
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
     
+    /**
+     * @description Changes the sign of the current operand
+     */
     changeSign() {
         if (this.previousOperand != '' && this.operation != '')
             this.currentOperand *= -1        
         else if (this.previousOperand == '' && this.operation == '')
             this.currentOperand *= -1
-        else 
-            return
+        else return
     }
 
     /**
-     * 
-     * @param {String} operation The operation entered 
-     * @returns 
      * @description gets the operation for the equation
+     * @param {String} operation The operation entered 
      */
     chooseOperation(operation) {
         if (this.currentOperand === '') return
         if (this.previousOperand != '') {
-            this.compute(true);
+            this.compute(true)
         }
-        this.operation = operation;
+        this.operation = operation
         this.previousOperand = this.currentOperand;
-        this.currentOperand = '';
+        this.currentOperand = ''
     }
 
     /**
-     * 
-     * @param {boolean} calculated Checks if the equation should be calculated
-     * @returns 
      * @description Calculates the equation
+     * @param {boolean} calculated Checks if the equation should be calculated
      */
     compute(calculated) {
         let computation
@@ -106,6 +102,10 @@ class Calculator {
         }
     }
 
+    /**
+     * @description Converts the number to String format to display
+     * @param {*} number 
+     */
     getDisplayNumber(number) {
         const stringNumber = number.toString()
         const integerDigits = parseFloat(stringNumber.split('.')[0])
@@ -123,9 +123,11 @@ class Calculator {
         }
     }
 
+    /**
+     * @description Updates the display of the calculator
+     */
     updateDisplay() {
-        this.currentOperandTextElement.innerText =
-            this.getDisplayNumber(this.answer)
+        this.currentOperandTextElement.innerText = this.getDisplayNumber(this.answer)
         if (this.operation != null) {
             this.previousOperandTextElement.innerText =
                 `${ this.getDisplayNumber(this.previousOperand)} ${this.operation} ${this.getDisplayNumber(this.currentOperand) }`
@@ -135,7 +137,8 @@ class Calculator {
     }
 }
 
-const calc = document.querySelector(".calculator-grid");
+//----------------------------------------------------------------------------------------
+// FETCHING ALL DATA FROM index.html
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
@@ -144,11 +147,25 @@ const allClearButton = document.querySelector('[data-all-clear]')
 const signButton = document.querySelector('[data-sign]')
 const previousOperandTextElement = document.querySelector('[data-previous-operand]')
 const currentOperandTextElement = document.querySelector('[data-current-operand]')
-const theme = document.querySelector(".theme");
-const github = document.querySelector(".github");
+//----------------------------------------------------------------------------------------
+const calc = document.querySelector('.calculator-grid');
+const theme = document.querySelector('.theme');
+const github = document.querySelector('.link-github');
 
+//----------------------------------------------------------------------------------------
+//SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+if (systemTheme.matches) {
+    calc.classList.toggle('dark')
+    theme.firstElementChild.className = "far fa-moon"
+}
+else { theme.firstElementChild.className = "far fa-sun" }
+
+//----------------------------------------------------------------------------------------
+// CREATING A NEW CALCULATOR OBJECT
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
+// NUMBER BUTTONS
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
@@ -156,41 +173,78 @@ numberButtons.forEach(button => {
         calculator.updateDisplay()
     })
 })
-
+// OPERATION BUTTONS
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.chooseOperation(button.innerText)
         calculator.updateDisplay()
     })
 })
-
-equalsButton.addEventListener('click', button => {
+// EQUALS BUTTON
+equalsButton.addEventListener('click', () => {
     calculator.compute(true)
     calculator.updateDisplay()
 })
-
-allClearButton.addEventListener('click', button => {
+// CLEAR BUTTON
+allClearButton.addEventListener('click', () => {
     calculator.clear()
     calculator.updateDisplay()
 })
-
-deleteButton.addEventListener('click', button => {
+// DELETE BUTTON
+deleteButton.addEventListener('click', () => {
     calculator.delete()
     calculator.updateDisplay()
 })
-
-signButton.addEventListener('click', button => {
+// SIGN BUTTON
+signButton.addEventListener('click', () => {
     calculator.changeSign()
     calculator.compute(false)
     calculator.updateDisplay()
 })
 
+// THEME TOGGLE
 theme.addEventListener('click', () => {
-    calc.classList.toggle("dark")
+    calc.classList.toggle('dark')
         ? (theme.firstElementChild.className = "far fa-moon")
-        : (theme.firstElementChild.className = "far fa-sun");
+        : (theme.firstElementChild.className = "far fa-sun")
 });
 
-github.addEventListener('click', () => {
+// GITHUB TEXT 
+/*github.addEventListener('click', () => {
     location.href = 'https://github.com/Alan0893/Calculator'
-})
+})*/
+
+//----------------------------------------------------------------------------------------
+// DROPDOWN MENU
+const drop = document.getElementsByClassName("dropdown")
+var i;
+for (i = 0; i < drop.length; i++) {
+    drop[i].addEventListener('click', function () {
+        this.classList.toggle('active')
+        var panel = this.nextElementSibling
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + 'px'
+        }
+    });
+}
+
+//----------------------------------------------------------------------------------------
+// FUNCTIONS TO OPEN & CLOSE THE MENU
+function openNav() {
+    document.getElementById('menu').style.width = "100%"
+}
+function closeNav() {
+    document.getElementById('menu').style.width = "0"
+
+    const drop = document.getElementsByClassName('dropdown')
+    for(let i = 0; i < drop.length; i++) {
+        drop[i].classList.toggle('.exit')
+        var panel = drop[i].nextElementSibling
+        if(panel.style.maxHeight) {
+            drop[i].classList.toggle('active')
+            panel.style.maxHeight = null
+        }
+    }
+}
