@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <!--NAVIGATION MENU-->
+    <div id="menu" class="nav">
+        <!--CLOSE BUTTON - NAVIGATION MENU-->
+        <a class="closebtn" onclick="closeNav()">&times;</a>
+
+        <button class="dropdown">About</button>
+        <div class="panel">
+            <h4>Coded by: Alan</h4>
+            <p>
+                This calculator was initially created as a small project for me to explore a new language. By creating
+                this calculator,
+                I was able to gain basic knowledge of HTML & CSS, while furthering my knowledge in JavaScript functions
+                and its
+                interactivity.
+                <br><br>
+                ➤ This calculator has the ability to solve simple mathematical operations. Using basic operations, this
+                calculator can
+                calculate a variety of equations, ranging from addition to simple exponential expressions.
+                <br>
+                <i class="fa-brands fa-html5"></i>
+                <i class="fa-brands fa-css3"></i>
+                <i class="fa-brands fa-js-square"></i>
+            </p>
+        </div>
+
+        <!--LINKS BUTTON-->
+        <button class="dropdown">Links</button>
+        <div class="panel">
+            <a rel="noopener" href="https://github.com/Alan0893/Calculator" target="_blank" class="link-github">
+                <i class="fa-brands fa-github"></i> Github
+            </a>
+        </div>
+
+        <!--CONTACT BUTTON-->
+        <button class="dropdown">Contact</button>
+        <div class="panel">
+            <a class="name">Alan</a><br>
+            <a rel="noopener" href="tel:9173886756" target="_blank" class="link-call">
+                <i class="fa-solid fa-phone"></i> (917) 388-6756
+            </a><br>
+            <a rel="noopener" href="mailto:alanl07905@gmail.com" target="_blank" class="link-mail">
+                <i class="fa-solid fa-envelope"></i> alanl07905@gmail.com
+            </a><br>
+            <a rel="noopener" href="https://maps.app.goo.gl/BNtK34MqKeYpqDSb8" target="_blank" class="link-loc">
+                <i class="fa-solid fa-location-dot"></i> Elmhurst Queens, NY
+            </a>
+        </div>
+    </div>
+    <!--OPEN BUTTON - NAVIGATION MENU-->
+    <span class="initialNav" onclick="openNav()">&#9776;</span>
+
+    <!--CALCULATOR-->
+    <div class="calculator-grid">
+        <!--THEME TOGGLE-->
+        <div class="theme">
+            <i class="far fa-sun"></i>
+        </div>
+
+        <!--CALCULATOR DISPLAY-->
+        <div class="output">
+            <div data-current-operand class="current-operand">
+                <p id="para">Hover over Button for more Information</p>
+            </div>
+        </div>
+
+        <!--CALCULATOR BUTTONS-->
+        <button option class="option" id="home">
+            <i class="fa-solid fa-house"></i>
+            <span class="text">Home</span>
+        </button>
+        <button option class="option" id="area">
+            <i class="fa-solid fa-square"></i>
+            <span class="text">Area</span>
+        </button>
+        <button option class="option" id="length">
+            <i class="fa-solid fa-ruler-horizontal"></i>
+            <span class="text">Length</span>
+        </button>
+        <button option class="option" id="temp">
+            <i class="fa-solid fa-temperature-half"></i>
+            <span class="text">Temp.</span>
+        </button>
+        <button option class="option" id="volume">
+            <i class="fa-solid fa-cube"></i>
+            <span class="text">Volume</span>
+        </button>
+        <button option class="option" id="mass">
+            <i class="fa-solid fa-weight-hanging"></i>
+            <span class="text">Mass</span>
+        </button>
+        <button option class="option" id="data">
+            <i class="fa-solid fa-chart-line"></i>
+            <span class="text">Data</span>
+        </button>
+        <button option class="option" id="speed">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span class="text">Speed</span>
+        </button>
+        <button option class="option" id="time">
+            <i class="fa-solid fa-clock"></i>
+            <span class="text">Time</span>
+        </button>
+        <button option class="option" id="na1">
+            <i class="fa-solid fa-ban"></i>
+            <span class="text">-</span>
+        </button>
+        <button option class="option" id="na2">
+            <i class="fa-solid fa-ban"></i>
+            <span class="text">-</span>
+        </button>
+        <button option class="option" id="na3">
+            <i class="fa-solid fa-ban"></i>
+            <span class="text">-</span>
+        </button>
+        <button option class="option" id="na4">
+            <i class="fa-solid fa-ban"></i>
+            <span class="text">-</span>
+        </button>
+        <button option class="option" id="na5">
+            <i class="fa-solid fa-ban"></i>
+            <span class="text">-</span>
+        </button>
+        <button option class="option" id="na6">
+            <i class="fa-solid fa-ban"></i>
+            <span class="text">-</span>
+        </button>
+        <button option class="option" id="na7">
+            <i class="fa-solid fa-ban"></i>
+            <span class="text">-</span>
+        </button>
+    </div>
+</body>
+
+<style>
+    /* ***************************************************************************************
+     * LIGHT MODE 
+     */
+    .option {
+        background-color: #c1c1c1;
+        border: none;
+        color: #4285F4;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+
+    /* ***************************************************************************************
+     * DARK MODE 
+     */
+    .dark .option {
+        background-color: #3b4042;
+        border: none;
+        color: #4ba0f4;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+</style>
+
+</html>

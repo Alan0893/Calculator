@@ -1,0 +1,307 @@
+/* ALL ELEMENTS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 65%;
+    transition: all .3s ease;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* ANIMATIONS - FILL */
+@keyframes fill {
+    50% { background-size: 100% 100% }
+    100% { background-size: 0 100% }
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* DEFAULT (LIGHT) MODE BACKGROUND */
+body {
+    background: linear-gradient(to right bottom, #00AAFF, #3242a8);
+}
+/* DARK MODE BACKGROUND */
+.dark {
+    background: linear-gradient(to right bottom, #0087cb, #273586);
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* FORMATTING THE CALCULATOR */
+.calculator-grid {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 90px);
+}
+/* FORMATTING THE CALCULATOR BUTTONS */
+.calculator-grid>button {
+    cursor: pointer;
+    font-size: 3rem;
+    outline: none;
+}
+/* FORMATTING THE DISPLAY */
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .45);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 16px;
+    text-align: left;
+}
+.current-operand {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0 auto;
+    display: inline-block;
+    background: url('https://s3.amazonaws.com/f.cl.ly/items/0A2z3P0k3C45013S0z1J/clip-bg.jpg') no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: rgba(255, 255, 255, 0);
+    background-size: 0 100%;
+    animation: fill 2.75s infinite;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/** BUTTON HOVER - LIGHT MODE
+ *  Changes color when cursor hovers over the button
+ */
+.calculator-grid>button.option:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 550%;
+}
+/** DARK MODE
+ *  Changes color when cursor hovers over the button
+ */
+.calculator-grid.dark>button.option:hover {
+    background-color: rgba(20, 57, 86, 255);
+    font-size: 550%;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* THEME TOGGLE */
+.theme {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: #eee8e1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* DARK MODE THEME TOGGLE */
+.dark .theme {
+    background-color: #464646;
+}
+/* THEME ICON */
+.theme i {
+    font-size: 3rem;
+    color: #777;
+    position: absolute;
+}
+.theme:active {
+    animation-name: rotate;
+    animation-duration: 0.3s;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* BUTTON TO OPEN MENU */
+.initialNav {
+    font-size: 30px;
+    font-weight: 575;
+    cursor: pointer;
+    top: 1rem;
+    left: 1rem;
+    position: absolute;
+}
+/* NAVIGATION MENU */
+.nav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+.dark .nav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+/* BUTTON TO CLOSE MENU */
+.closebtn {
+    color: #818181;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+/* HOVERING OVER CLOSE BUTTON */
+.closebtn:hover {
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/* DROPDOWN MENU */
+.dropdown {
+    background-color: black;
+    color: #818181;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    transition: 0.4s;
+}
+/* SECTION HOVER */
+.active,
+.dropdown:hover {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+    content: '\00D7';
+    background-color: #818181;
+}
+/* SECTION SYMBOL - */
+.active:after {
+    content: "\2212";
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 10px;
+}
+/* PANEL */
+.panel {
+    padding: 0 18px;
+    background-color: #818181;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-size: 25px;
+    color: white;
+}
+/* PANEL ICONS */
+.panel i {
+    font-size: 2.75rem;
+    color: inherit;
+    position: inherit;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* LINKS SECTION ---------------------*/
+.link-github {
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 545;
+    text-decoration: none;
+    color: white;
+}
+.link-github:hover {
+    color: #4078c0;
+    font-weight: 555;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* CONTACT SECTION ---------------------*/
+.name {
+    font-size: 19px;
+    font-weight: 555;
+}
+.link-call {
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 545;
+    text-decoration: none;
+    color: white;
+}
+.link-call:hover {
+    color: #00b140;
+    font-weight: 555;
+}
+.link-mail {
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 545;
+    text-decoration: none;
+    color: white;
+}
+.link-mail:hover {
+    color: #4c8bf5;
+    font-weight: 555;
+}
+.link-loc {
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 545;
+    text-decoration: none;
+    color: white;
+}
+.link-loc:hover {
+    color: #de5246;
+    font-weight: 555;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* ICONS */
+i.fa-html5 {
+    color: #f06529;
+}
+i.fa-css3 {
+    color: #2965f1;
+}
+i.fa-js-square {
+    color: #F0DB4F;
+}
+.nav .panel .fa-github {
+    color: #4078c0;
+    font-size: 2.2rem;
+}
+.nav .panel .fa-phone {
+    color: #00b140;
+    font-size: 1.75rem;
+}
+.nav .panel .fa-envelope {
+    color: #4c8bf5;
+    font-size: 2.0rem;
+}
+.nav .panel .fa-location-dot {
+    color: #de5246;
+    font-size: 2.0rem;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* CONVERSION OPTIONS MENU */
+.text {
+    text-align: center;
+    font-size: 12px;
+    display: block;
+    flex-direction: column;
+}
