@@ -9,15 +9,10 @@
 }
 
 /*--------------------------------------------------------------------------------------*/
-/* ANIMATIONS */
+/* ANIMATIONS - ROTATION */
 @keyframes rotate {
-    0% {
-        transform: rotate(0);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0) }
+    100% { transform: rotate(360deg) }
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -68,6 +63,14 @@ body {
 .current-operand {
     color: white;
     font-size: 3.5rem;
+}
+/* BUTTON TO REDIRECT TO CONVERSION MENU*/
+.converter {
+    color: rgba(255, 255, 255, .50);
+    font-size: 2.75rem;
+    position: relative;
+    top: -1rem;
+    right: 30rem;
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -221,7 +224,6 @@ body {
     font-size: 25px;
     transition: 0.4s;
 }
-
 /* SECTION HOVER */
 .active,
 .dropdown:hover {

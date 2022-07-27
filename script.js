@@ -1,12 +1,12 @@
 class Calculator {
     /**
      * @constructor
-     * @param {*} previousOperandTextElement equation text element
-     * @param {*} currentOperandTextElement answer text element
+     * @param {*} prevOperand equation text element
+     * @param {*} currOperand answer text element
      */
-    constructor(previousOperandTextElement, currentOperandTextElement) {
-        this.previousOperandTextElement = previousOperandTextElement
-        this.currentOperandTextElement = currentOperandTextElement
+    constructor(prevOperand, currOperand) {
+        this.prevOperand = prevOperand
+        this.currOperand = currOperand
         this.equation = ''
         this.answer = ''
         this.clear()
@@ -127,12 +127,12 @@ class Calculator {
      * @description Updates the display of the calculator
      */
     updateDisplay() {
-        this.currentOperandTextElement.innerText = this.getDisplayNumber(this.answer)
+        this.currOperand.innerText = this.getDisplayNumber(this.answer)
         if (this.operation != null) {
-            this.previousOperandTextElement.innerText =
+            this.prevOperand.innerText =
                 `${ this.getDisplayNumber(this.previousOperand)} ${this.operation} ${this.getDisplayNumber(this.currentOperand) }`
         } else {
-            this.previousOperandTextElement.innerText = this.equation
+            this.prevOperand.innerText = this.equation
         }
     }
 }
@@ -140,17 +140,17 @@ class Calculator {
 //----------------------------------------------------------------------------------------
 // FETCHING ALL DATA FROM index.html
 const numberButtons = document.querySelectorAll('[data-number]')
+console.log(numberButtons)
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const signButton = document.querySelector('[data-sign]')
-const previousOperandTextElement = document.querySelector('[data-previous-operand]')
-const currentOperandTextElement = document.querySelector('[data-current-operand]')
+const prevOperand = document.querySelector('[data-previous-operand]')
+const currOperand = document.querySelector('[data-current-operand]')
 //----------------------------------------------------------------------------------------
 const calc = document.querySelector('.calculator-grid');
 const theme = document.querySelector('.theme');
-const github = document.querySelector('.link-github');
 
 //----------------------------------------------------------------------------------------
 //SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
@@ -163,7 +163,7 @@ else { theme.firstElementChild.className = "far fa-sun" }
 
 //----------------------------------------------------------------------------------------
 // CREATING A NEW CALCULATOR OBJECT
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+const calculator = new Calculator(prevOperand, currOperand)
 
 // NUMBER BUTTONS
 numberButtons.forEach(button => {
@@ -182,8 +182,9 @@ operationButtons.forEach(button => {
 })
 // EQUALS BUTTON
 equalsButton.addEventListener('click', () => {
-    calculator.compute(true)
-    calculator.updateDisplay()
+    console.log(calculator)
+    calculator.compute(true);
+    calculator.updateDisplay();
 })
 // CLEAR BUTTON
 allClearButton.addEventListener('click', () => {
@@ -209,14 +210,9 @@ theme.addEventListener('click', () => {
         : (theme.firstElementChild.className = "far fa-sun")
 });
 
-// GITHUB TEXT 
-/*github.addEventListener('click', () => {
-    location.href = 'https://github.com/Alan0893/Calculator'
-})*/
-
 //----------------------------------------------------------------------------------------
 // DROPDOWN MENU
-const drop = document.getElementsByClassName("dropdown")
+const drop = document.getElementsByClassName('dropdown')
 var i;
 for (i = 0; i < drop.length; i++) {
     drop[i].addEventListener('click', function () {
