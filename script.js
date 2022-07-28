@@ -140,7 +140,6 @@ class Calculator {
 //----------------------------------------------------------------------------------------
 // FETCHING ALL DATA FROM index.html
 const numberButtons = document.querySelectorAll('[data-number]')
-console.log(numberButtons)
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
 const deleteButton = document.querySelector('[data-delete]')
@@ -151,6 +150,8 @@ const currOperand = document.querySelector('[data-current-operand]')
 //----------------------------------------------------------------------------------------
 const calc = document.querySelector('.calculator-grid');
 const theme = document.querySelector('.theme');
+//VARIABLE TO CHECK IF NAV IS OPENED
+var isNavOpen = false;
 
 //----------------------------------------------------------------------------------------
 //SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
@@ -182,7 +183,6 @@ operationButtons.forEach(button => {
 })
 // EQUALS BUTTON
 equalsButton.addEventListener('click', () => {
-    console.log(calculator)
     calculator.compute(true);
     calculator.updateDisplay();
 })
@@ -210,6 +210,51 @@ theme.addEventListener('click', () => {
         : (theme.firstElementChild.className = "far fa-sun")
 });
 
+// CHECKS WHEN A KEY IS PRESSED
+document.onkeydown = function (e) {
+    if (e.key == 'Backspace') { 
+        calculator.delete() 
+        calculator.updateDisplay()
+    } 
+    else if (e.key == '^') {
+        calculator.chooseOperation('^')
+        calculator.updateDisplay()
+    }
+    else if (e.key == '+') {
+        calculator.chooseOperation('+')
+        calculator.updateDisplay()
+    }
+    else if (e.key == '-') {
+        calculator.chooseOperation('')
+        calculator.updateDisplay()
+    }
+    else if (e.key == '*' || e.key == 'x') {
+        calculator.chooseOperation('×')
+        calculator.updateDisplay()
+    }
+    else if (e.key == '/') {
+        calculator.chooseOperation('÷')
+        calculator.updateDisplay()
+    }
+    else if (isFinite(e.key)) {
+        calculator.appendNumber(e.key)
+        calculator.compute(false)
+        calculator.updateDisplay()
+    }
+    else if (e.key == '.') {
+        calculator.appendNumber(e.key)
+        calculator.compute(false)
+        calculator.updateDisplay()
+    }
+    else if (e.key == '=' || e.key == 'Enter') {
+        calculator.compute(true);
+        calculator.updateDisplay();
+    }
+    else if (e.key == 'Escape' && isNavOpen) {
+        closeNav()
+    }
+}
+
 //----------------------------------------------------------------------------------------
 // DROPDOWN MENU
 const drop = document.getElementsByClassName('dropdown')
@@ -230,10 +275,10 @@ for (i = 0; i < drop.length; i++) {
 // FUNCTIONS TO OPEN & CLOSE THE MENU
 function openNav() {
     document.getElementById('menu').style.width = "100%"
+    isNavOpen = true
 }
 function closeNav() {
     document.getElementById('menu').style.width = "0"
-
     const drop = document.getElementsByClassName('dropdown')
     for(let i = 0; i < drop.length; i++) {
         drop[i].classList.toggle('.exit')
@@ -243,4 +288,5 @@ function closeNav() {
             panel.style.maxHeight = null
         }
     }
+    isNavOpen = false;
 }
