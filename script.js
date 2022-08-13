@@ -5,10 +5,10 @@ class Calculator {
      * @param {*} currOperand answer text element
      */
     constructor(prevOperand, currOperand) {
-        this.prevOperand = prevOperand
-        this.currOperand = currOperand
-        this.equation = ''
-        this.answer = ''
+        this.prevOperand    = prevOperand
+        this.currOperand    = currOperand
+        this.equation       = ''
+        this.answer         = ''
         this.clear()
     }
 
@@ -16,7 +16,7 @@ class Calculator {
      * @description Clears the calculator display
      */
     clear() {
-        this.currentOperand = ''
+        this.currentOperand = '0'
         this.previousOperand = ''
         this.operation = ''
         this.equation = ''
@@ -104,7 +104,7 @@ class Calculator {
 
     /**
      * @description Converts the number to String format to display
-     * @param {*} number 
+     * @param {float} number 
      */
     getDisplayNumber(number) {
         const stringNumber = number.toString()
@@ -139,19 +139,19 @@ class Calculator {
 
 //----------------------------------------------------------------------------------------
 // FETCHING ALL DATA FROM index.html
-const numberButtons = document.querySelectorAll('[data-number]')
-const operationButtons = document.querySelectorAll('[data-operation]')
-const equalsButton = document.querySelector('[data-equals]')
-const deleteButton = document.querySelector('[data-delete]')
-const allClearButton = document.querySelector('[data-all-clear]')
-const signButton = document.querySelector('[data-sign]')
-const prevOperand = document.querySelector('[data-previous-operand]')
-const currOperand = document.querySelector('[data-current-operand]')
+const numberButtons         = document.querySelectorAll('[number]')
+const operationButtons      = document.querySelectorAll('[operation]')
+const equalsButton          = document.querySelector('[equals]')
+const deleteButton          = document.querySelector('[delete]')
+const allClearButton        = document.querySelector('[all-clear]')
+const signButton            = document.querySelector('[sign]')
+const prevOperand           = document.querySelector('[previous-operand]')
+const currOperand           = document.querySelector('[current-operand]')
 //----------------------------------------------------------------------------------------
-const calc = document.querySelector('.calculator-grid');
-const theme = document.querySelector('.theme');
+const calc                  = document.querySelector('.calculator-grid');
+const theme                 = document.querySelector('.theme');
 //VARIABLE TO CHECK IF NAV IS OPENED
-var isNavOpen = false;
+var isNavOpen               = false;
 
 //----------------------------------------------------------------------------------------
 //SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
@@ -210,6 +210,7 @@ theme.addEventListener('click', () => {
         : (theme.firstElementChild.className = "far fa-sun")
 });
 
+//----------------------------------------------------------------------------------------
 // CHECKS WHEN A KEY IS PRESSED
 document.onkeydown = function (e) {
     if (e.key == 'Backspace') { 
@@ -225,7 +226,7 @@ document.onkeydown = function (e) {
         calculator.updateDisplay()
     }
     else if (e.key == '-') {
-        calculator.chooseOperation('')
+        calculator.chooseOperation('-')
         calculator.updateDisplay()
     }
     else if (e.key == '*' || e.key == 'x') {
@@ -256,7 +257,7 @@ document.onkeydown = function (e) {
 }
 
 //----------------------------------------------------------------------------------------
-// DROPDOWN MENU
+// NAVIGATION MENU
 const drop = document.getElementsByClassName('dropdown')
 var i;
 for (i = 0; i < drop.length; i++) {
@@ -266,7 +267,7 @@ for (i = 0; i < drop.length; i++) {
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null
         } else {
-            panel.style.maxHeight = panel.scrollHeight + 'px'
+            panel.style.maxHeight = '100%'
         }
     });
 }

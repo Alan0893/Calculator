@@ -3,16 +3,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Comfortaa';
     font-size: 65%;
     transition: all .3s ease;
 }
 
 /*--------------------------------------------------------------------------------------*/
-/* ANIMATIONS - ROTATION */
+/* ANIMATION - ROTATION */
 @keyframes rotate {
     0% { transform: rotate(0) }
     100% { transform: rotate(360deg) }
+}
+/* ANIMATION - BLINK */
+@keyframes blink {
+    50% { opacity: 0 }
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -247,7 +251,7 @@ body {
     background-color: #818181;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: all 0.3s ease-in-out;
     font-size: 25px;
     color: white;
 }
