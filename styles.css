@@ -14,10 +14,7 @@
     0% { transform: rotate(0) }
     100% { transform: rotate(360deg) }
 }
-/* ANIMATION - BLINK */
-@keyframes blink {
-    50% { opacity: 0 }
-}
+
 
 /*--------------------------------------------------------------------------------------*/
 /* DEFAULT (LIGHT) MODE BACKGROUND */
@@ -66,7 +63,7 @@ body {
 }
 .current-operand {
     color: white;
-    font-size: 3.5rem;
+    font-size: 2.75rem;
 }
 /* BUTTON TO REDIRECT TO CONVERSION MENU*/
 .converter {

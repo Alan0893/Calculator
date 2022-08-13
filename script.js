@@ -99,6 +99,7 @@ class Calculator {
             this.previousOperand = ''
             this.currentOperand = this.answer
             this.operation = ''
+            this.equation = this.answer
         }
     }
 
@@ -275,11 +276,11 @@ for (i = 0; i < drop.length; i++) {
 //----------------------------------------------------------------------------------------
 // FUNCTIONS TO OPEN & CLOSE THE MENU
 function openNav() {
-    document.getElementById('menu').style.width = "100%"
+    document.getElementById('menu').style.width = '100%'
     isNavOpen = true
 }
 function closeNav() {
-    document.getElementById('menu').style.width = "0"
+    document.getElementById('menu').style.width = '0'
     const drop = document.getElementsByClassName('dropdown')
     for(let i = 0; i < drop.length; i++) {
         drop[i].classList.toggle('.exit')
