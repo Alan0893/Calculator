@@ -20,39 +20,19 @@ class Calculator {
      * @returns 
      */
     getDisplayText(text) {
-        let textArr = [{
-            name: 'Home',
-            text: 'Returns to the home page.'
-        }, {
-            name: 'Area',
-            text: 'Area Conversion Calculator'
-        }, {
-            name: 'Length',
-            text: 'Length Conversion Calculator'
-        }, {
-            name: 'Temp.',
-            text: 'Temperature Conversion Calculator'
-        }, {
-            name: 'Volume',
-            text: 'Volume Conversion Calculator'
-        }, {
-            name: 'Mass',
-            text: 'Mass Conversion Calculator'
-        }, {
-            name: 'Data',
-            text: 'Data Conversion Calculator'
-        }, {
-            name: 'Speed',
-            text: 'Speed Conversion Calculator'
-        }, {
-            name: 'Time',
-            text: 'Time Conversion Calculator'
-        }, {
-            name: '-',
-            text: 'Not Available'
-        }]
+        let textArr = [
+            { name: 'Home', text: 'Returns to the home page.' }, 
+            { name: 'Area', text: 'Area Conversion Calculator' }, 
+            { name: 'Length', text: 'Length Conversion Calculator' }, 
+            { name: 'Temp.', text: 'Temperature Conversion Calculator' }, 
+            { name: 'Volume', text: 'Volume Conversion Calculator' }, 
+            { name: 'Mass', text: 'Mass Conversion Calculator' }, 
+            { name: 'Data', text: 'Data Conversion Calculator' }, 
+            { name: 'Speed', text: 'Speed Conversion Calculator' }, 
+            { name: 'Time', text: 'Time Conversion Calculator' }, 
+            { name: '-', text: 'Not Available' }
+        ]
         let pos = textArr.map(t => t.name == text.toString()).indexOf(true)
-
         if(pos == -1) return
         return textArr[pos].text
     }
@@ -70,11 +50,14 @@ class Calculator {
 //----------------------------------------------------------------------------------------
 // FETCHING ALL DATA FROM index.html
 const optionButtons = document.querySelectorAll('[option]')
-const info = document.querySelector('[data-current-operand]')
+const info = document.querySelector('[current-operand]')
 const home = document.getElementById('home')
+const area = document.getElementById('area')
 //----------------------------------------------------------------------------------------
 const calc = document.querySelector('.calculator-grid');
 const theme = document.querySelector('.theme');
+//VARIABLE TO CHECK IF NAV IS OPENED
+var isNavOpen = false;
 
 //----------------------------------------------------------------------------------------
 //SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
@@ -93,6 +76,9 @@ const calculator = new Calculator(info)
 home.addEventListener('click', () => {
     location.href = '../index.html'
 })
+area.addEventListener('click', () => {
+    location.href = '../conversions/area/index.html'
+})
 
 // OPTION BUTTONS - HOVER
 optionButtons.forEach(button => {
@@ -103,6 +89,14 @@ optionButtons.forEach(button => {
     })
 })
 
+// CHECKS WHEN A KEY IS PRESSED
+document.onkeydown = function (e) {
+    if (e.key == 'Escape' && isNavOpen) {
+        closeNav()
+    }
+    else return
+}
+
 //----------------------------------------------------------------------------------------
 // THEME TOGGLE
 theme.addEventListener('click', () => {
@@ -112,7 +106,7 @@ theme.addEventListener('click', () => {
 });
 
 //----------------------------------------------------------------------------------------
-// DROPDOWN MENU
+// NAVIGATION MENU
 const drop = document.getElementsByClassName('dropdown')
 var i;
 for (i = 0; i < drop.length; i++) {
@@ -131,6 +125,7 @@ for (i = 0; i < drop.length; i++) {
 // FUNCTIONS TO OPEN & CLOSE THE MENU
 function openNav() {
     document.getElementById('menu').style.width = "100%"
+    isNavOpen = true
 }
 function closeNav() {
     document.getElementById('menu').style.width = "0"
@@ -144,4 +139,5 @@ function closeNav() {
             panel.style.maxHeight = null
         }
     }
+    isNavOpen = false
 }
