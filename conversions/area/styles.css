@@ -7,6 +7,17 @@
     font-size: 65%;
     transition: all .3s ease;
 }
+sup {
+    vertical-align: sub;
+    font-size: small;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* ANIMATION - ROTATION */
+@keyframes rotate {
+    0% { transform: rotate(0) }
+    100% {  transform: rotate(360deg) }
+}
 
 /*--------------------------------------------------------------------------------------*/
 /* DEFAULT (LIGHT) MODE BACKGROUND */
@@ -94,14 +105,46 @@ body {
 /** BUTTON HOVER - LIGHT MODE
  *  Changes color when cursor hovers over the button
  */
-.calculator-grid>button.option:hover {
+.calculator-grid>button.ac:hover {
+    background-color: rgba(252, 200, 126, .7);
+    font-size: 550%;
+}
+.calculator-grid>button.delete:hover {
+    background-color: rgba(252, 200, 126, .7);
+    font-size: 550%;
+}
+.calculator-grid>button.number:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 550%;
+}
+.calculator-grid>button.carat:hover {
+    background-color: rgba(252, 200, 126, .7);
+    font-size: 550%;
+}
+.calculator-grid>button.home:hover {
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 550%;
 }
 /** DARK MODE
  *  Changes color when cursor hovers over the button
  */
-.calculator-grid.dark>button.option:hover {
+.calculator-grid.dark>button.ac:hover {
+    background-color: rgba(92, 86, 57, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.delete:hover {
+    background-color: rgba(92, 86, 57, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.number:hover {
+    background-color: rgba(20, 57, 86, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.carat:hover {
+    background-color: rgba(92, 86, 57, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.home:hover {
     background-color: rgba(20, 57, 86, 255);
     font-size: 550%;
 }

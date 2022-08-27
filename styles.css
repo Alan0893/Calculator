@@ -6,6 +6,7 @@
     font-family: 'Comfortaa';
     font-size: 65%;
     transition: all .3s ease;
+    overflow-y: inherit;
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -37,6 +38,7 @@ body {
     min-height: 100vh;
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: minmax(120px, auto) repeat(5, 90px);
+    overflow-y: hidden;
 }
 /* FORMATTING THE CALCULATOR BUTTONS */
 .calculator-grid>button {

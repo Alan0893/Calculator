@@ -27,6 +27,7 @@ class Calculator {
      * @description Deletes the previous character 
      */
     delete() {
+        if (this.currentOperand.length == 1 && this.currOperand == '0') return
         this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
 
@@ -155,15 +156,6 @@ const theme                 = document.querySelector('.theme');
 var isNavOpen               = false;
 
 //----------------------------------------------------------------------------------------
-//SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
-const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-if (systemTheme.matches) {
-    calc.classList.toggle('dark')
-    theme.firstElementChild.className = "far fa-moon"
-}
-else { theme.firstElementChild.className = "far fa-sun" }
-
-//----------------------------------------------------------------------------------------
 // CREATING A NEW CALCULATOR OBJECT
 const calculator = new Calculator(prevOperand, currOperand)
 
@@ -204,6 +196,16 @@ signButton.addEventListener('click', () => {
     calculator.updateDisplay()
 })
 
+//----------------------------------------------------------------------------------------
+//SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+if (systemTheme.matches) {
+    calc.classList.toggle('dark')
+    theme.firstElementChild.className = "far fa-moon"
+}
+else { theme.firstElementChild.className = "far fa-sun" }
+
+//----------------------------------------------------------------------------------------
 // THEME TOGGLE
 theme.addEventListener('click', () => {
     calc.classList.toggle('dark')

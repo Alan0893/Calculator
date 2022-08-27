@@ -20,20 +20,40 @@ class Calculator {
      * @returns 
      */
     getDisplayText(text) {
-        let textArr = [
-            { name: 'Home', text: 'Returns to the home page.' }, 
-            { name: 'Area', text: 'Area Conversion Calculator' }, 
-            { name: 'Length', text: 'Length Conversion Calculator' }, 
-            { name: 'Temp.', text: 'Temperature Conversion Calculator' }, 
-            { name: 'Volume', text: 'Volume Conversion Calculator' }, 
-            { name: 'Mass', text: 'Mass Conversion Calculator' }, 
-            { name: 'Data', text: 'Data Conversion Calculator' }, 
-            { name: 'Speed', text: 'Speed Conversion Calculator' }, 
-            { name: 'Time', text: 'Time Conversion Calculator' }, 
-            { name: '-', text: 'Not Available' }
-        ]
+        let textArr = [{
+            name: 'Home',
+            text: 'Returns to the home page.'
+        }, {
+            name: 'Area',
+            text: 'Area Conversion Calculator'
+        }, {
+            name: 'Length',
+            text: 'Length Conversion Calculator'
+        }, {
+            name: 'Temp.',
+            text: 'Temperature Conversion Calculator'
+        }, {
+            name: 'Volume',
+            text: 'Volume Conversion Calculator'
+        }, {
+            name: 'Mass',
+            text: 'Mass Conversion Calculator'
+        }, {
+            name: 'Data',
+            text: 'Data Conversion Calculator'
+        }, {
+            name: 'Speed',
+            text: 'Speed Conversion Calculator'
+        }, {
+            name: 'Time',
+            text: 'Time Conversion Calculator'
+        }, {
+            name: '-',
+            text: 'Not Available'
+        }]
         let pos = textArr.map(t => t.name == text.toString()).indexOf(true)
-        if(pos == -1) return
+
+        if (pos == -1) return
         return textArr[pos].text
     }
 
@@ -49,24 +69,16 @@ class Calculator {
 
 //----------------------------------------------------------------------------------------
 // FETCHING ALL DATA FROM index.html
-const optionButtons = document.querySelectorAll('[option]')
-const info = document.querySelector('[current-operand]')
-const home = document.getElementById('home')
-const area = document.getElementById('area')
+const optionButtons     = document.querySelectorAll('[option]')
+const info              = document.querySelector('[data-description]')
+const home              = document.getElementById('home')
+const area              = document.getElementById('area')
+const length            = document.getElementById('length')
 //----------------------------------------------------------------------------------------
 const calc = document.querySelector('.calculator-grid');
 const theme = document.querySelector('.theme');
 //VARIABLE TO CHECK IF NAV IS OPENED
-var isNavOpen = false;
-
-//----------------------------------------------------------------------------------------
-//SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
-const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-if (systemTheme.matches) {
-    calc.classList.toggle('dark')
-    theme.firstElementChild.className = "far fa-moon"
-}
-else { theme.firstElementChild.className = "far fa-sun" }
+var isNavOpen           = false;
 
 //----------------------------------------------------------------------------------------
 // CREATING A NEW CALCULATOR OBJECT
@@ -79,23 +91,25 @@ home.addEventListener('click', () => {
 area.addEventListener('click', () => {
     location.href = '../conversions/area/index.html'
 })
+length.addEventListener('click', () => {
+    location.href = '../conversions/length/index.html'
+})
 
 // OPTION BUTTONS - HOVER
 optionButtons.forEach(button => {
     button.addEventListener('mouseover', () => {
-        hover = true;
         calculator.updateDisplay(button.innerText)
-        hover = false;
     })
 })
 
-// CHECKS WHEN A KEY IS PRESSED
-document.onkeydown = function (e) {
-    if (e.key == 'Escape' && isNavOpen) {
-        closeNav()
-    }
-    else return
+//----------------------------------------------------------------------------------------
+//SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+if (systemTheme.matches) {
+    calc.classList.toggle('dark')
+    theme.firstElementChild.className = "far fa-moon"
 }
+else { theme.firstElementChild.className = "far fa-sun" }
 
 //----------------------------------------------------------------------------------------
 // THEME TOGGLE
@@ -104,6 +118,14 @@ theme.addEventListener('click', () => {
         ? (theme.firstElementChild.className = "far fa-moon")
         : (theme.firstElementChild.className = "far fa-sun")
 });
+
+//----------------------------------------------------------------------------------------
+// CHECKS WHEN A KEY IS PRESSED
+document.onkeydown = function (e) {
+    if (e.key == 'Escape' && isNavOpen) {
+        closeNav()
+    }
+}
 
 //----------------------------------------------------------------------------------------
 // NAVIGATION MENU
@@ -116,7 +138,7 @@ for (i = 0; i < drop.length; i++) {
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null
         } else {
-            panel.style.maxHeight = panel.scrollHeight + 'px'
+            panel.style.maxHeight = '100%'
         }
     });
 }
@@ -124,12 +146,11 @@ for (i = 0; i < drop.length; i++) {
 //----------------------------------------------------------------------------------------
 // FUNCTIONS TO OPEN & CLOSE THE MENU
 function openNav() {
-    document.getElementById('menu').style.width = "100%"
+    document.getElementById('menu').style.width = '100%'
     isNavOpen = true
 }
 function closeNav() {
-    document.getElementById('menu').style.width = "0"
-
+    document.getElementById('menu').style.width = '0'
     const drop = document.getElementsByClassName('dropdown')
     for (let i = 0; i < drop.length; i++) {
         drop[i].classList.toggle('.exit')
@@ -139,5 +160,5 @@ function closeNav() {
             panel.style.maxHeight = null
         }
     }
-    isNavOpen = false
+    isNavOpen = false;
 }

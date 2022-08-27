@@ -78,10 +78,10 @@
                 <option class="unit" value="Acres">Acres (ac)</option>
                 <option class="unit" value="Ares">Ares (a)</option>
                 <option class="unit" value="Hectares">Hectares (ha)</option>
-                <option class="unit" value="Square centimeter">Square centimeters (cm2)</option>
-                <option class="unit" value="Square feet">Square feet (ft2)</option>
-                <option class="unit" value="Square inches">Square inches (in2)</option>
-                <option class="unit" value="Square meters">Square meters (m2)</option>
+                <option class="unit" value="Square centimeters">Square centimeters (cm²)</option>
+                <option class="unit" value="Square feet">Square feet (ft²)</option>
+                <option class="unit" value="Square inches">Square inches (in²)</option>
+                <option class="unit" value="Square meters">Square meters (m²)</option>
             </select>
             <div unit1 class="unitDisplay">0</div>
             
@@ -89,10 +89,10 @@
                 <option class="unit" value="Acres">Acres (ac)</option>
                 <option class="unit" value="Ares">Ares (a)</option>
                 <option class="unit" value="Hectares">Hectares (ha)</option>
-                <option class="unit" value="Square centimeter">Square centimeters (cm2)</option>
-                <option class="unit" value="Square feet">Square feet (ft2)</option>
-                <option class="unit" value="Square inches">Square inches (in2)</option>
-                <option class="unit" value="Square meters">Square meters (m2)</option>
+                <option class="unit" value="Square centimeters">Square centimeters (cm²)</option>
+                <option class="unit" value="Square feet">Square feet (ft²)</option>
+                <option class="unit" value="Square inches">Square inches (in²)</option>
+                <option class="unit" value="Square meters">Square meters (m²)</option>
             </select>
             <div unit2 class="unitDisplay">0</div>
         </div>
@@ -109,11 +109,13 @@
         <button number class="number">1</button>
         <button number class="number">2</button>
         <button number class="number">3</button>
-        <button number class="carat">∧</button>
-        <button title="blank" class="number"></button>
+        <button carat class="carat">∧</button>
+        <button home class="home" title="home">
+            <i class="fa-solid fa-house"></i>
+        </button>
         <button number class="number">0</button>
         <button number class="number">.</button>
-        <button number class="carat">∨</button>
+        <button carat class="carat">∨</button>
     </div>
 </body>
 
@@ -169,6 +171,18 @@
         cursor: pointer;
         border-radius: 16px;
     }
+    .home {
+        background-color: #c1c1c1;
+        border: none;
+        color: #777;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
     
     /* ***************************************************************************************
      * DARK MODE 
@@ -213,6 +227,18 @@
         background-color: #3b4042;
         border: none;
         color: #4ba0f4;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+    .dark .home {
+        background-color: #3b4042;
+        border: none;
+        color: rgba(255, 255, 255, .50);
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;

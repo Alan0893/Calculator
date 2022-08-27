@@ -6,19 +6,13 @@
     font-family: 'Comfortaa';
     font-size: 65%;
     transition: all .3s ease;
-    overflow-y: inherit;
 }
 
 /*--------------------------------------------------------------------------------------*/
-/* ANIMATIONS - FILL */
-@keyframes fill {
-    50% { background-size: 100% 100% }
-    100% { background-size: 0 100% }
-}
 /* ANIMATION - ROTATION */
 @keyframes rotate {
     0% { transform: rotate(0) }
-    100% { transform: rotate(360deg) }
+    100% {  transform: rotate(360deg) }
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -41,8 +35,7 @@ body {
     align-content: center;
     min-height: 100vh;
     grid-template-columns: repeat(4, 90px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 90px);
-    overflow-y: hidden;
+    grid-template-rows: minmax(120px, auto) repeat(4, 90px);
 }
 /* FORMATTING THE CALCULATOR BUTTONS */
 .calculator-grid>button {
@@ -63,32 +56,91 @@ body {
     word-break: break-all;
     border-radius: 16px;
     text-align: left;
+    height: 15rem;
 }
-.description {
+.unitDisplay {
     color: white;
     font-size: 2.5rem;
-    margin: 0 auto;
-    display: inline-block;
-    background: url('https://s3.amazonaws.com/f.cl.ly/items/0A2z3P0k3C45013S0z1J/clip-bg.jpg') no-repeat;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: rgba(255, 255, 255, 0);
-    background-size: 0 100%;
-    animation: fill 2.75s infinite;
+}
+/* BUTTON TO REDIRECT TO CONVERSION MENU*/
+.converter {
+    color: rgba(255, 255, 255, .50);
+    font-size: 2.75rem;
+    position: relative;
+    top: -1rem;
+    right: 30rem;
+    padding: 0px 0px 0px 0px;
+}
+/* SELECT MENU */
+.select1 {
+    font-size: 1rem;
+    padding: 2px 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    position: relative;
+    top: 0.5rem;
+    right: 17rem;
+}
+.select2 {
+    font-size: 1rem;
+    padding: 2px 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    position: relative;
+    top: 0.5rem;
+    right: 17rem;
+}
+.unit {
+    font-size: 1rem;
+    background-color: #2f3335;
 }
 
 /*--------------------------------------------------------------------------------------*/
 /** BUTTON HOVER - LIGHT MODE
  *  Changes color when cursor hovers over the button
  */
-.calculator-grid>button.option:hover {
+.calculator-grid>button.ac:hover {
+    background-color: rgba(252, 200, 126, .7);
+    font-size: 550%;
+}
+.calculator-grid>button.delete:hover {
+    background-color: rgba(252, 200, 126, .7);
+    font-size: 550%;
+}
+.calculator-grid>button.number:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 550%;
+}
+.calculator-grid>button.carat:hover {
+    background-color: rgba(252, 200, 126, .7);
+    font-size: 550%;
+}
+.calculator-grid>button.home:hover {
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 550%;
 }
 /** DARK MODE
  *  Changes color when cursor hovers over the button
  */
-.calculator-grid.dark>button.option:hover {
+.calculator-grid.dark>button.ac:hover {
+    background-color: rgba(92, 86, 57, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.delete:hover {
+    background-color: rgba(92, 86, 57, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.number:hover {
+    background-color: rgba(20, 57, 86, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.carat:hover {
+    background-color: rgba(92, 86, 57, 255);
+    font-size: 550%;
+}
+.calculator-grid.dark>button.home:hover {
     background-color: rgba(20, 57, 86, 255);
     font-size: 550%;
 }
@@ -141,6 +193,19 @@ body {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+.dark .nav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -289,13 +354,4 @@ i.fa-js-square {
 .nav .panel .fa-location-dot {
     color: #de5246;
     font-size: 2.0rem;
-}
-
-/*--------------------------------------------------------------------------------------*/
-/* CONVERSION OPTIONS MENU */
-.text {
-    text-align: center;
-    font-size: 12px;
-    display: block;
-    flex-direction: column;
 }
