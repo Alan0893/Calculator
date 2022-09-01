@@ -74,6 +74,12 @@ const info              = document.querySelector('[data-description]')
 const home              = document.getElementById('home')
 const area              = document.getElementById('area')
 const length            = document.getElementById('length')
+const temp              = document.getElementById('temp')
+const volume            = document.getElementById('volume')
+const mass              = document.getElementById('mass')
+const data              = document.getElementById('data')
+const speed             = document.getElementById('speed')
+const time              = document.getElementById('time')
 //----------------------------------------------------------------------------------------
 const calc = document.querySelector('.calculator-grid');
 const theme = document.querySelector('.theme');
@@ -93,6 +99,24 @@ area.addEventListener('click', () => {
 })
 length.addEventListener('click', () => {
     location.href = '../conversions/length/index.html'
+})
+temp.addEventListener('click', () => {
+    location.href = '../conversions/temperature/index.html'
+})
+volume.addEventListener('click', () => {
+    location.href = '../conversions/volume/index.html'
+})
+mass.addEventListener('click', () => {
+    location.href = '../conversions/mass/index.html'
+})
+data.addEventListener('click', () => {
+    location.href = '../conversions/data/index.html'
+})
+speed.addEventListener('click', () => {
+    location.href = '../conversions/speed/index.html'
+})
+time.addEventListener('click', () => {
+    location.href = '../conversions/time/index.html'
 })
 
 // OPTION BUTTONS - HOVER

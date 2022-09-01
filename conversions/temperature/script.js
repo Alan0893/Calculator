@@ -4,11 +4,13 @@ class Calculator {
      * @param {*} unitElement1 top unit
      * @param {*} unitElement2 bottom unit
      */
-    constructor(unitElement1, unitElement2) {
+    constructor(unitElement1, unitElement2, select1, select2) {
         this.unitElement1 = unitElement1
         this.unitElement2 = unitElement2
         this.selected = 0
         this.clear()
+        this.convert(select1, select2)
+        this.updateDisplay()
     }
 
     /**
@@ -70,156 +72,48 @@ class Calculator {
         else return
 
         var converted = {
-            acres: 0,
-            ares: 0,
-            hectares: 0,
-            square_centimeters: 0,
-            square_feet: 0,
-            square_inches: 0,
-            square_meters: 0
+            celsius: 0,
+            fahrenheit: 0,
+            kelvin: 0,
         }
 
         if(selected == 0) {
-            if(un1 == "acres") {
-                converted.acres = valNum 
-                converted.ares = valNum * 40.4686
-                converted.hectares = valNum / 2.471
-                converted.square_centimeters = valNum * 40468564.224
-                converted.square_feet = valNum * 43560
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 4047
+            if(un1 == "celsius") {
+                converted.celsius = valNum
+                converted.fahrenheit = (valNum * 9 / 5) + 32 
+                converted.kelvin = (valNum + 273.15)
                 this.unit2 = converted[un2]
             }   
-            else if(un1 == "ares") {
-                converted.acres = valNum / 40.469
-                converted.ares = valNum
-                converted.hectares = valNum / 100
-                converted.square_centimeters = valNum * 1000000
-                converted.square_feet = valNum * 1076.391042
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 100
+            else if(un1 == "fahrenheit") {
+                converted.celsius = (valNum - 32) * (5/9)
+                converted.fahrenheit = valNum
+                converted.kelvin = (valNum - 32) * (5/9) + 273.15
                 this.unit2 = converted[un2]
             }
-            else if(un1 == "hectares") {
-                converted.acres = valNum * 2.4711
-                converted.ares = valNum * 100
-                converted.hectares = valNum
-                converted.square_centimeters = valNum * 100000000
-                converted.square_feet = valNum * 107639.1042
-                converted.square_inches = valNum * 15500031.000062
-                converted.square_meters = valNum * 10000
-                this.unit2 = converted[un2]
-            }
-            else if(un1 == "square_centimeters") {
-                converted.acres = valNum * 0.000000024711
-                converted.ares = valNum / 1000000
-                converted.hectares = valNum / 100000000
-                converted.square_centimeters = valNum 
-                converted.square_feet = valNum * 0.001076391 
-                converted.square_inches = valNum * 0.15500031
-                converted.square_meters = valNum * 0.0001
-                this.unit2 = converted[un2]
-            }
-            else if(un1 == "square_feet") {
-                converted.acres = valNum / 43560
-                converted.ares = valNum / 1076
-                converted.hectares = valNum * 0.00000929
-                converted.square_centimeters = valNum * 929.0304
-                converted.square_feet = valNum
-                converted.square_inches = valNum * 144
-                converted.square_meters = valNum / 10.764
-                this.unit2 = converted[un2]
-            }
-            else if(un1 == "square_inches") {
-                converted.acres = valNum / 6273000
-                converted.ares = valNum / 155000
-                converted.hectares = valNum / 15500000
-                converted.square_centimeters = valNum * 6.4516
-                converted.square_feet = valNum / 144
-                converted.square_inches = valNum
-                converted.square_meters = valNum / 1550
-                this.unit2 = converted[un2]
-            }
-            else if(un1 == "square_meters") {
-                converted.acres = valNum / 4047
-                converted.ares = valNum / 100
-                converted.hectares = valNum / 10000
-                converted.square_centimeters = valNum * 10000
-                converted.square_feet = valNum * 10.764
-                converted.square_inches = valNum * 1550
-                converted.square_meters = valNum
+            else if(un1 == "kelvin") {
+                converted.celsius = (valNum - 273.15)
+                converted.fahrenheit = (valNum - 273.15) * (9/5) + 32
+                converted.kelvin = valNum
                 this.unit2 = converted[un2]
             }
         }
         else if (selected == 1) {
-            if (un2 == "acres") {
-                converted.acres = valNum
-                converted.ares = valNum * 40.4686
-                converted.hectares = valNum / 2.471
-                converted.square_centimeters = valNum * 40468564.224
-                converted.square_feet = valNum * 43560
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 4047
+            if (un2 == "celsius") {
+                converted.celsius = valNum
+                converted.fahrenheit = (valNum * 9 / 5) + 32
+                converted.kelvin = (valNum + 273.15)
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "ares") {
-                converted.acres = valNum / 40.469
-                converted.ares = valNum
-                converted.hectares = valNum / 100
-                converted.square_centimeters = valNum * 1000000
-                converted.square_feet = valNum * 1076.391042
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 100
+            else if (un2 == "fahrenheit") {
+                converted.celsius = (valNum - 32) * (5 / 9)
+                converted.fahrenheit = valNum
+                converted.kelvin = (valNum - 32) * (5 / 9) + 273.15
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "hectares") {
-                converted.acres = valNum * 2.4711
-                converted.ares = valNum * 100
-                converted.hectares = valNum
-                converted.square_centimeters = valNum * 100000000
-                converted.square_feet = valNum * 107639.1042
-                converted.square_inches = valNum * 15500031.000062
-                converted.square_meters = valNum * 10000
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "square_centimeters") {
-                converted.acres = valNum * 0.000000024711
-                converted.ares = valNum / 1000000
-                converted.hectares = valNum / 100000000
-                converted.square_centimeters = valNum
-                converted.square_feet = valNum * 0.001076391
-                converted.square_inches = valNum * 0.15500031
-                converted.square_meters = valNum * 0.0001
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "square_feet") {
-                converted.acres = valNum / 43560
-                converted.ares = valNum / 1076
-                converted.hectares = valNum * 0.00000929
-                converted.square_centimeters = valNum * 929.0304
-                converted.square_feet = valNum
-                converted.square_inches = valNum * 144
-                converted.square_meters = valNum / 10.764
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "square_inches") {
-                converted.acres = valNum / 6273000
-                converted.ares = valNum / 155000
-                converted.hectares = valNum / 15500000
-                converted.square_centimeters = valNum * 6.4516
-                converted.square_feet = valNum / 144
-                converted.square_inches = valNum
-                converted.square_meters = valNum / 1550
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "square_meters") {
-                converted.acres = valNum / 4047
-                converted.ares = valNum / 100
-                converted.hectares = valNum / 10000
-                converted.square_centimeters = valNum * 10000
-                converted.square_feet = valNum * 10.764
-                converted.square_inches = valNum * 1550
-                converted.square_meters = valNum
+            else if (un2 == "kelvin") {
+                converted.celsius = (valNum - 273.15)
+                converted.fahrenheit = (valNum - 273.15) * (9 / 5) + 32
+                converted.kelvin = valNum
                 this.unit1 = converted[un1]
             }
         }
@@ -274,10 +168,10 @@ const theme                 = document.querySelector('.theme');
 var isNavOpen               = false
 
 //SETTING THE INITIAL VALUE OF SELECT MENU 2
-select2.value = 'Ares'
+select2.value = 'Fahrenheit'
 //----------------------------------------------------------------------------------------
 // CREATING A NEW CALCULATOR OBJECT
-const calculator = new Calculator(unit1, unit2)
+const calculator = new Calculator(unit1, unit2, select1, select2)
 
 // NUMBER BUTTONS
 numberButtons.forEach(button => {

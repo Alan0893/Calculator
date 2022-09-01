@@ -7,6 +7,10 @@
     font-size: 65%;
     transition: all .3s ease;
 }
+sup {
+    vertical-align: sub;
+    font-size: small;
+}
 
 /*--------------------------------------------------------------------------------------*/
 /* ANIMATION - ROTATION */
@@ -80,7 +84,7 @@ body {
     color: white;
     position: relative;
     top: 0.5rem;
-    right: 20rem;
+    right: 22rem;
 }
 .select2 {
     font-size: 1rem;
@@ -90,7 +94,7 @@ body {
     color: white;
     position: relative;
     top: 0.5rem;
-    right: 20rem;
+    right: 22rem;
 }
 .unit {
     font-size: 1rem;

@@ -71,156 +71,279 @@ class Calculator {
         else return
 
         var converted = {
-            acres: 0,
-            ares: 0,
-            hectares: 0,
-            square_centimeters: 0,
-            square_feet: 0,
-            square_inches: 0,
-            square_meters: 0
+            millimeters: 0,
+            centimeters: 0,
+            meters: 0,
+            kilometers: 0,
+            inches: 0,
+            feet: 0,
+            yards: 0,
+            miles: 0,
+            nautical_miles: 0,
+            mils: 0
         }
 
         if(selected == 0) {
-            if(un1 == "acres") {
-                converted.acres = valNum 
-                converted.ares = valNum * 40.4686
-                converted.hectares = valNum / 2.471
-                converted.square_centimeters = valNum * 40468564.224
-                converted.square_feet = valNum * 43560
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 4047
+            if(un1 == "millimeters") {
+                converted.millimeters = valNum 
+                converted.centimeters = valNum / 10
+                converted.meters = valNum / 1000
+                converted.kilometers = valNum / 1000000
+                converted.inches = valNum / 25/4
+                converted.feet = valNum / 304.8
+                converted.yards = valNum / 914.4
+                converted.miles = valNum / 1609000
+                converted.nautical_miles = valNum / 1852000
+                converted.mils = valNum * 39.97
                 this.unit2 = converted[un2]
             }   
-            else if(un1 == "ares") {
-                converted.acres = valNum / 40.469
-                converted.ares = valNum
-                converted.hectares = valNum / 100
-                converted.square_centimeters = valNum * 1000000
-                converted.square_feet = valNum * 1076.391042
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 100
+            else if(un1 == "centimeters") {
+                converted.millimeters = valNum * 10
+                converted.centimeters = valNum
+                converted.meters = valNum / 100
+                converted.kilometers = valNum / 100000
+                converted.inches = valNum / 2.54
+                converted.feet = valNum / 30.48
+                converted.yards = valNum / 91.44
+                converted.miles = valNum / 160900
+                converted.nautical_miles = valNum / 185200
+                converted.mils = valNum * 393.7
                 this.unit2 = converted[un2]
             }
-            else if(un1 == "hectares") {
-                converted.acres = valNum * 2.4711
-                converted.ares = valNum * 100
-                converted.hectares = valNum
-                converted.square_centimeters = valNum * 100000000
-                converted.square_feet = valNum * 107639.1042
-                converted.square_inches = valNum * 15500031.000062
-                converted.square_meters = valNum * 10000
+            else if(un1 == "meters") {
+                converted.millimeters = valNum * 1000
+                converted.centimeters = valNum * 100
+                converted.meters = valNum 
+                converted.kilometers = valNum / 1000
+                converted.inches = valNum * 39.37
+                converted.feet = valNum * 3.281
+                converted.yards = valNum * 1.094
+                converted.miles = valNum / 1609
+                converted.nautical_miles = valNum / 1852
+                converted.mils = valNum * 39370
                 this.unit2 = converted[un2]
             }
-            else if(un1 == "square_centimeters") {
-                converted.acres = valNum * 0.000000024711
-                converted.ares = valNum / 1000000
-                converted.hectares = valNum / 100000000
-                converted.square_centimeters = valNum 
-                converted.square_feet = valNum * 0.001076391 
-                converted.square_inches = valNum * 0.15500031
-                converted.square_meters = valNum * 0.0001
+            else if(un1 == "kilometers") {
+                converted.millimeters = valNum * 1000000
+                converted.centimeters = valNum * 100000
+                converted.meters = valNum * 1000
+                converted.kilometers = valNum
+                converted.inches = valNum * 39370
+                converted.feet = valNum * 3281
+                converted.yards = valNum * 1094
+                converted.miles = valNum / 1.609
+                converted.nautical_miles = valNum / 1.852
+                converted.mils = valNum * 39370000
                 this.unit2 = converted[un2]
             }
-            else if(un1 == "square_feet") {
-                converted.acres = valNum / 43560
-                converted.ares = valNum / 1076
-                converted.hectares = valNum * 0.00000929
-                converted.square_centimeters = valNum * 929.0304
-                converted.square_feet = valNum
-                converted.square_inches = valNum * 144
-                converted.square_meters = valNum / 10.764
+            else if(un1 == "inches") {
+                converted.millimeters = valNum * 25.4
+                converted.centimeters = valNum * 2.54
+                converted.meters = valNum / 39.37
+                converted.kilometers = valNum / 39370
+                converted.inches = valNum
+                converted.feet = valNum / 12
+                converted.yards = valNum / 36
+                converted.miles = valNum / 63360
+                converted.nautical_miles = valNum / 72910
+                converted.mils = valNum * 1000
                 this.unit2 = converted[un2]
             }
-            else if(un1 == "square_inches") {
-                converted.acres = valNum / 6273000
-                converted.ares = valNum / 155000
-                converted.hectares = valNum / 15500000
-                converted.square_centimeters = valNum * 6.4516
-                converted.square_feet = valNum / 144
-                converted.square_inches = valNum
-                converted.square_meters = valNum / 1550
+            else if(un1 == "feet") {
+                converted.millimeters = valNum * 304.8
+                converted.centimeters = valNum * 30.48
+                converted.meters = valNum / 3.281
+                converted.kilometers = valNum / 3281
+                converted.inches = valNum * 12
+                converted.feet = valNum
+                converted.yards = valNum / 3
+                converted.miles = valNum / 5280
+                converted.nautical_miles = valNum / 6076
+                converted.mils = valNum * 12000
                 this.unit2 = converted[un2]
             }
-            else if(un1 == "square_meters") {
-                converted.acres = valNum / 4047
-                converted.ares = valNum / 100
-                converted.hectares = valNum / 10000
-                converted.square_centimeters = valNum * 10000
-                converted.square_feet = valNum * 10.764
-                converted.square_inches = valNum * 1550
-                converted.square_meters = valNum
+            else if(un1 == "yards") {
+                converted.millimeters = valNum * 914.4
+                converted.centimeters = valNum * 91.44
+                converted.meters = valNum / 1.094
+                converted.kilometers = valNum / 1094
+                converted.inches = valNum * 36
+                converted.feet = valNum * 3
+                converted.yards = valNum
+                converted.miles = valNum / 1760
+                converted.nautical_miles = valNum / 2025
+                converted.mils = valNum * 36000
+                this.unit2 = converted[un2]
+            }
+            else if (un1 == "miles") {
+                converted.millimeters = valNum * 1609000
+                converted.centimeters = valNum * 160900
+                converted.meters = valNum * 1609
+                converted.kilometers = valNum * 1.609
+                converted.inches = valNum * 63360
+                converted.feet = valNum * 5280 
+                converted.yards = valNum * 1760
+                converted.miles = valNum
+                converted.nautical_miles = valNum / 1.151
+                converted.mils = valNum * 63360000
+                this.unit2 = converted[un2]
+            }
+            else if (un1 == "nautical_miles") {
+                converted.millimeters = valNum * 1852000
+                converted.centimeters = valNum * 185200
+                converted.meters = valNum * 1852
+                converted.kilometers = valNum * 1.852
+                converted.inches = valNum * 72910
+                converted.feet = valNum * 6076
+                converted.yards = valNum * 2025
+                converted.miles = valNum * 1.151
+                converted.nautical_miles = valNum
+                converted.mils = valNum * 72910000
+                this.unit2 = converted[un2]
+            }
+            else if (un1 == "mils") {
+                converted.millimeters = valNum / 39.37
+                converted.centimeters = valNum / 393.7
+                converted.meters = valNum / 39370
+                converted.kilometers = valNum / 39370000
+                converted.inches = valNum / 1000
+                converted.feet = valNum / 12000
+                converted.yards = valNum / 36000
+                converted.miles = valNum / 63360000
+                converted.nautical_miles = valNum / 72910000
+                converted.mils = valNum
                 this.unit2 = converted[un2]
             }
         }
         else if (selected == 1) {
-            if (un2 == "acres") {
-                converted.acres = valNum
-                converted.ares = valNum * 40.4686
-                converted.hectares = valNum / 2.471
-                converted.square_centimeters = valNum * 40468564.224
-                converted.square_feet = valNum * 43560
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 4047
+            if (un2 == "millimeters") {
+                converted.millimeters = valNum
+                converted.centimeters = valNum / 10
+                converted.meters = valNum / 1000
+                converted.kilometers = valNum / 1000000
+                converted.inches = valNum / 25 / 4
+                converted.feet = valNum / 304.8
+                converted.yards = valNum / 914.4
+                converted.miles = valNum / 1609000
+                converted.nautical_miles = valNum / 1852000
+                converted.mils = valNum * 39.97
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "ares") {
-                converted.acres = valNum / 40.469
-                converted.ares = valNum
-                converted.hectares = valNum / 100
-                converted.square_centimeters = valNum * 1000000
-                converted.square_feet = valNum * 1076.391042
-                converted.square_inches = valNum * 6272640
-                converted.square_meters = valNum * 100
+            else if (un2 == "centimeters") {
+                converted.millimeters = valNum * 10
+                converted.centimeters = valNum
+                converted.meters = valNum / 100
+                converted.kilometers = valNum / 100000
+                converted.inches = valNum / 2.54
+                converted.feet = valNum / 30.48
+                converted.yards = valNum / 91.44
+                converted.miles = valNum / 160900
+                converted.nautical_miles = valNum / 185200
+                converted.mils = valNum * 393.7
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "hectares") {
-                converted.acres = valNum * 2.4711
-                converted.ares = valNum * 100
-                converted.hectares = valNum
-                converted.square_centimeters = valNum * 100000000
-                converted.square_feet = valNum * 107639.1042
-                converted.square_inches = valNum * 15500031.000062
-                converted.square_meters = valNum * 10000
+            else if (un2 == "meters") {
+                converted.millimeters = valNum * 1000
+                converted.centimeters = valNum * 100
+                converted.meters = valNum
+                converted.kilometers = valNum / 1000
+                converted.inches = valNum * 39.37
+                converted.feet = valNum * 3.281
+                converted.yards = valNum * 1.094
+                converted.miles = valNum / 1609
+                converted.nautical_miles = valNum / 1852
+                converted.mils = valNum * 39370
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "square_centimeters") {
-                converted.acres = valNum * 0.000000024711
-                converted.ares = valNum / 1000000
-                converted.hectares = valNum / 100000000
-                converted.square_centimeters = valNum
-                converted.square_feet = valNum * 0.001076391
-                converted.square_inches = valNum * 0.15500031
-                converted.square_meters = valNum * 0.0001
+            else if (un2 == "kilometers") {
+                converted.millimeters = valNum * 1000000
+                converted.centimeters = valNum * 100000
+                converted.meters = valNum * 1000
+                converted.kilometers = valNum
+                converted.inches = valNum * 39370
+                converted.feet = valNum * 3281
+                converted.yards = valNum * 1094
+                converted.miles = valNum / 1.609
+                converted.nautical_miles = valNum / 1.852
+                converted.mils = valNum * 39370000
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "square_feet") {
-                converted.acres = valNum / 43560
-                converted.ares = valNum / 1076
-                converted.hectares = valNum * 0.00000929
-                converted.square_centimeters = valNum * 929.0304
-                converted.square_feet = valNum
-                converted.square_inches = valNum * 144
-                converted.square_meters = valNum / 10.764
+            else if (un2 == "inches") {
+                converted.millimeters = valNum * 25.4
+                converted.centimeters = valNum * 2.54
+                converted.meters = valNum / 39.37
+                converted.kilometers = valNum / 39370
+                converted.inches = valNum
+                converted.feet = valNum / 12
+                converted.yards = valNum / 36
+                converted.miles = valNum / 63360
+                converted.nautical_miles = valNum / 72910
+                converted.mils = valNum * 1000
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "square_inches") {
-                converted.acres = valNum / 6273000
-                converted.ares = valNum / 155000
-                converted.hectares = valNum / 15500000
-                converted.square_centimeters = valNum * 6.4516
-                converted.square_feet = valNum / 144
-                converted.square_inches = valNum
-                converted.square_meters = valNum / 1550
+            else if (un2 == "feet") {
+                converted.millimeters = valNum * 304.8
+                converted.centimeters = valNum * 30.48
+                converted.meters = valNum / 3.281
+                converted.kilometers = valNum / 3281
+                converted.inches = valNum * 12
+                converted.feet = valNum
+                converted.yards = valNum / 3
+                converted.miles = valNum / 5280
+                converted.nautical_miles = valNum / 6076
+                converted.mils = valNum * 12000
                 this.unit1 = converted[un1]
             }
-            else if (un2 == "square_meters") {
-                converted.acres = valNum / 4047
-                converted.ares = valNum / 100
-                converted.hectares = valNum / 10000
-                converted.square_centimeters = valNum * 10000
-                converted.square_feet = valNum * 10.764
-                converted.square_inches = valNum * 1550
-                converted.square_meters = valNum
+            else if (un2 == "yards") {
+                converted.millimeters = valNum * 914.4
+                converted.centimeters = valNum * 91.44
+                converted.meters = valNum / 1.094
+                converted.kilometers = valNum / 1094
+                converted.inches = valNum * 36
+                converted.feet = valNum * 3
+                converted.yards = valNum
+                converted.miles = valNum / 1760
+                converted.nautical_miles = valNum / 2025
+                converted.mils = valNum * 36000
+                this.unit1 = converted[un1]
+            }
+            else if (un2 == "miles") {
+                converted.millimeters = valNum * 1609000
+                converted.centimeters = valNum * 160900
+                converted.meters = valNum * 1609
+                converted.kilometers = valNum * 1.609
+                converted.inches = valNum * 63360
+                converted.feet = valNum * 5280
+                converted.yards = valNum * 1760
+                converted.miles = valNum
+                converted.nautical_miles = valNum / 1.151
+                converted.mils = valNum * 63360000
+                this.unit1 = converted[un1]
+            }
+            else if (un2 == "nautical_miles") {
+                converted.millimeters = valNum * 1852000
+                converted.centimeters = valNum * 185200
+                converted.meters = valNum * 1852
+                converted.kilometers = valNum * 1.852
+                converted.inches = valNum * 72910
+                converted.feet = valNum * 6076
+                converted.yards = valNum * 2025
+                converted.miles = valNum * 1.151
+                converted.nautical_miles = valNum
+                converted.mils = valNum * 72910000
+                this.unit1 = converted[un1]
+            }
+            else if (un2 == "mils") {
+                converted.millimeters = valNum / 39.37
+                converted.centimeters = valNum / 393.7
+                converted.meters = valNum / 39370
+                converted.kilometers = valNum / 39370000
+                converted.inches = valNum / 1000
+                converted.feet = valNum / 12000
+                converted.yards = valNum / 36000
+                converted.miles = valNum / 63360000
+                converted.nautical_miles = valNum / 72910000
+                converted.mils = valNum
                 this.unit1 = converted[un1]
             }
         }
@@ -275,7 +398,7 @@ const theme                 = document.querySelector('.theme');
 var isNavOpen               = false
 
 //SETTING THE INITIAL VALUE OF SELECT MENU 2
-select2.value = 'Ares'
+select2.value = 'Centimeters'
 //----------------------------------------------------------------------------------------
 // CREATING A NEW CALCULATOR OBJECT
 const calculator = new Calculator(unit1, unit2)
@@ -313,12 +436,15 @@ homeButton.addEventListener('click', () => {
 select1.addEventListener('click', () => {
     calculator.convert(select1, select2)
     calculator.updateDisplay()
-}) 
+})
 select2.addEventListener('click', () => {
     calculator.convert(select1, select2)
     calculator.updateDisplay()
 })
-
+document.addEventListener('click', () => {
+    calculator.convert(select1, select2)
+    calculator.updateDisplay()
+})
 
 //----------------------------------------------------------------------------------------
 //SETTING THE DEFAULT THEME TO SYSTEM SETTING THEME
@@ -342,10 +468,12 @@ theme.addEventListener('click', () => {
 document.onkeydown = function (e) {
     if (e.key == 'Backspace') {
         calculator.delete()
+        calculator.convert(select1, select2)
         calculator.updateDisplay()
     }
     else if (isFinite(e.key)) {
         calculator.appendNumber(e.key)
+        calculator.convert(select1, select2)
         calculator.updateDisplay()
     }
     else if (e.key == '.') {
@@ -354,6 +482,8 @@ document.onkeydown = function (e) {
     }
     else if (e.key == '^' || e.key == 'ArrowUp' || e.key == 'ArrowDown') {
         calculator.switchSelected()
+        calculator.convert(select1, select2)
+        calculator.updateDisplay()
     }
     else if (e.key == 'Escape' && isNavOpen) {
         closeNav()
