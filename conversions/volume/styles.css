@@ -6,42 +6,27 @@
     font-family: 'Comfortaa';
     font-size: 65%;
     transition: all .3s ease;
-    overflow-y: inherit;
+}
+sup {
+    vertical-align: sub;
+    font-size: small;
 }
 
 /*--------------------------------------------------------------------------------------*/
 /* ANIMATION - ROTATION */
 @keyframes rotate {
     0% { transform: rotate(0) }
-    100% { transform: rotate(360deg) }
-}
-/* ANIMATION - TEXT CLIP */
-@keyframes diagonal-move-anim {
-	0% {
-		transform: translate(0, 0);
-	}
-	100% {
-		transform: translate(150px, 150px);
-	}
+    100% {  transform: rotate(360deg) }
 }
 
 /*--------------------------------------------------------------------------------------*/
 /* DEFAULT (LIGHT) MODE BACKGROUND */
 body {
-	background-image: linear-gradient(-200deg,
-				#0087cb 5%,
-				#3b9dce 30%,
-				#72b8fe 50%,
-				#5564c3 90%);
+    background: linear-gradient(to right bottom, #00AAFF, #3242a8);
 }
 /* DARK MODE BACKGROUND */
 .dark {
-    /*background: linear-gradient(to right bottom, #0087cb, #273586);*/
-	background-image: linear-gradient(-200deg,
-				#0087cb 10%,
-				#015f8e 29%,
-				#7dbeff 67%,
-				#3242a8 100%);
+    background: linear-gradient(to right bottom, #0087cb, #273586);
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -54,8 +39,7 @@ body {
     align-content: center;
     min-height: 100vh;
     grid-template-columns: repeat(4, 90px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 90px);
-    overflow-y: hidden;
+    grid-template-rows: minmax(120px, auto) repeat(4, 90px);
 }
 /* FORMATTING THE CALCULATOR BUTTONS */
 .calculator-grid>button {
@@ -75,14 +59,12 @@ body {
     word-wrap: break-word;
     word-break: break-all;
     border-radius: 16px;
+    text-align: left;
+    height: 15rem;
 }
-.previous-operand {
-    color: rgba(255, 255, 255, .75);
-    font-size: 2.5rem;
-}
-.current-operand {
+.unitDisplay {
     color: white;
-    font-size: 2.75rem;
+    font-size: 2.5rem;
 }
 /* BUTTON TO REDIRECT TO CONVERSION MENU*/
 .converter {
@@ -91,6 +73,32 @@ body {
     position: relative;
     top: -1rem;
     right: 30rem;
+    padding: 0px 0px 0px 0px;
+}
+/* SELECT MENU */
+.select1 {
+    font-size: 1rem;
+    padding: 2px 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    position: relative;
+    top: 0.5rem;
+    right: 17.5rem;
+}
+.select2 {
+    font-size: 1rem;
+    padding: 2px 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    position: relative;
+    top: 0.5rem;
+    right: 17.5rem;
+}
+.unit {
+    font-size: 1rem;
+    background-color: #2f3335;
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -105,19 +113,15 @@ body {
     background-color: rgba(252, 200, 126, .7);
     font-size: 550%;
 }
-.calculator-grid>button.operation:hover {
-    background-color: rgba(199, 255, 214, 0.75);
-    font-size: 550%;
-}
 .calculator-grid>button.number:hover {
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 550%;
 }
-.calculator-grid>button.equals:hover {
-    background-color: rgba(0, 177, 64, .6);
+.calculator-grid>button.carat:hover {
+    background-color: rgba(252, 200, 126, .7);
     font-size: 550%;
 }
-.calculator-grid>button.sign:hover {
+.calculator-grid>button.home:hover {
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 550%;
 }
@@ -132,19 +136,15 @@ body {
     background-color: rgba(92, 86, 57, 255);
     font-size: 550%;
 }
-.calculator-grid.dark>button.operation:hover {
-    background-color: rgba(6, 86, 69, 255);
-    font-size: 550%;
-}
 .calculator-grid.dark>button.number:hover {
     background-color: rgba(20, 57, 86, 255);
     font-size: 550%;
 }
-.calculator-grid.dark>button.equals:hover {
-    background-color: rgba(13, 112, 89, 255);
+.calculator-grid.dark>button.carat:hover {
+    background-color: rgba(92, 86, 57, 255);
     font-size: 550%;
 }
-.calculator-grid.dark>button.sign:hover {
+.calculator-grid.dark>button.home:hover {
     background-color: rgba(20, 57, 86, 255);
     font-size: 550%;
 }
@@ -173,7 +173,7 @@ body {
     color: #777;
     position: absolute;
 }
-.theme:active{
+.theme:active {
     animation-name: rotate;
     animation-duration: 0.3s;
 }
@@ -267,7 +267,7 @@ body {
     background-color: #818181;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: max-height 0.2s ease-out;
     font-size: 25px;
     color: white;
 }
@@ -296,7 +296,7 @@ body {
 /* CONTACT SECTION ---------------------*/
 .name {
     font-size: 19px;
-    font-weight:555;
+    font-weight: 555;
 }
 .link-call {
     font-size: 18px;
@@ -331,6 +331,7 @@ body {
     color: #de5246;
     font-weight: 555;
 }
+
 /*--------------------------------------------------------------------------------------*/
 /* ICONS */
 i.fa-html5 {
@@ -352,7 +353,7 @@ i.fa-js-square {
 }
 .nav .panel .fa-envelope {
     color: #4c8bf5;
-    font-size: 2.0rem; 
+    font-size: 2.0rem;
 }
 .nav .panel .fa-location-dot {
     color: #de5246;

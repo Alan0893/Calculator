@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculator</title>
+    <meta name="description" content="This calculator has the ability to solve simple mathematical operations.">
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7378/7378257.png">
     <link href="styles.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-</head> 
+    
+</head>
 
 <body>
     <!--NAVIGATION MENU-->
@@ -23,11 +25,14 @@
         <div class="panel">
             <h4>Coded by: Alan</h4>
             <p>
-                This calculator was initially created as a small project for me to explore a new language. By creating this calculator,
-                I was able to gain basic knowledge of HTML & CSS, while furthering my knowledge in JavaScript functions and its
+                This calculator was initially created as a small project for me to explore a new language. By creating
+                this calculator,
+                I was able to gain basic knowledge of HTML & CSS, while furthering my knowledge in JavaScript functions
+                and its
                 interactivity.
                 <br><br>
-                ➤ This calculator has the ability to solve simple mathematical operations. Using basic operations, this calculator can
+                ➤ This calculator has the ability to solve simple mathematical operations. Using basic operations, this
+                calculator can
                 calculate a variety of equations, ranging from addition to simple exponential expressions.
                 <br>
                 <i class="fa-brands fa-html5"></i>
@@ -61,10 +66,9 @@
     </div>
     <!--OPEN BUTTON - NAVIGATION MENU-->
     <span class="initialNav" onclick="openNav()">&#9776;</span>
-    
+
     <!--CALCULATOR-->
     <div class="calculator-grid">
-
         <!--THEME TOGGLE-->
         <div class="theme">
             <i class="far fa-sun"></i>
@@ -72,34 +76,44 @@
 
         <!--CALCULATOR DISPLAY-->
         <div class="output">
-            <a rel="noopener" title="converter" href="./options/select.html" class="converter">
-                <i class="fa-solid fa-calculator"></i>
-            </a>
-            <div previous-operand class="previous-operand"></div>
-            <div current-operand class="current-operand">0</div>
+            <select class="select1" id="select-units" title="units">
+                <option class="unit" value="Miles per Hour">Miles per Hour (mi/h)</option>
+                <option class="unit" value="Feet per Second">Feet per Second (ft/s)</option>
+                <option class="unit" value="Meters per Second">Meters per Second (m/s)</option>
+                <option class="unit" value="Kilometers per Second">Kilometers per Second (km/s)</option>
+                <option class="unit" value="Knots">Knots (kn)</option>
+            </select>
+            <div unit1 class="unitDisplay">0</div>
+            
+            <select class="select2" id="select-units2" title="units2">
+				<option class="unit" value="Miles per Hour">Miles per Hour (mi/h)</option>
+				<option class="unit" value="Feet per Second">Feet per Second (ft/s)</option>
+				<option class="unit" value="Meters per Second">Meters per Second (m/s)</option>
+				<option class="unit" value="Kilometers per Second">Kilometers per Second (km/s)</option>
+				<option class="unit" value="Knots">Knots (kn)</option>
+            </select>
+            <div unit2 class="unitDisplay">0</div>
         </div>
 
         <!--CALCULATOR BUTTONS-->
-        <button all-clear class="ac">AC</button>
-        <button delete class="delete">⌫</button>
-        <button operation class="operation">^</button>
-        <button operation class="operation">÷</button>
         <button number class="number">7</button>
         <button number class="number">8</button>
         <button number class="number">9</button>
-        <button operation class="operation">×</button>
+        <button all-clear class="ac">AC</button>
         <button number class="number">4</button>
         <button number class="number">5</button>
         <button number class="number">6</button>
-        <button operation class="operation">-</button>
+        <button delete class="delete">⌫</button>
         <button number class="number">1</button>
         <button number class="number">2</button>
         <button number class="number">3</button>
-        <button operation class="operation">+</button>
-        <button sign class="sign">+/-</button>
+        <button carat class="carat">∧</button>
+        <button home class="home" title="home">
+            <i class="fa-solid fa-house"></i>
+        </button>
         <button number class="number">0</button>
         <button number class="number">.</button>
-        <button equals class="equals">=</button>
+        <button carat class="carat">∨</button>
     </div>
 </body>
 
@@ -111,7 +125,7 @@
         background-color: #d6d6d6;
         border: none;
         color: #e68600;
-        padding: 10px 20px;
+        padding: 1px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -130,19 +144,19 @@
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 16px;
-    }
-    .operation {
+    }  
+    .carat {
         background-color: #d6d6d6;
         border: none;
-        color: #00b140;
-        padding: 10px 20px;
+        color: #e68600;
+        padding: 1px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 16px;
-    }
+    }  
     .number {
         background-color: #c1c1c1;
         border: none;
@@ -155,22 +169,10 @@
         cursor: pointer;
         border-radius: 16px;
     }
-    .equals {
-        background-color: #00b140;
-        border: none;
-        color: #ffffff;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 16px;
-    }
-    .sign {
+    .home {
         background-color: #c1c1c1;
         border: none;
-        color: #4285F4;
+        color: #777;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -179,6 +181,7 @@
         cursor: pointer;
         border-radius: 16px;
     }
+    
     /* ***************************************************************************************
      * DARK MODE 
      */
@@ -206,10 +209,10 @@
         cursor: pointer;
         border-radius: 16px;
     }
-    .dark .operation {
+    .dark .carat {
         background-color: #2f3335;
         border: none;
-        color: #4cfd8e;
+        color: #ffa72b;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -230,22 +233,10 @@
         cursor: pointer;
         border-radius: 16px;
     }
-    .dark .equals {
-        background-color: #008e33;
-        border: none;
-        color: #ffffff;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 16px;
-    }
-    .dark .sign {
+    .dark .home {
         background-color: #3b4042;
         border: none;
-        color: #4ba0f4;
+        color: rgba(255, 255, 255, .50);
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
