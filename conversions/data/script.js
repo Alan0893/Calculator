@@ -81,116 +81,116 @@ class Calculator {
         }
 
         if(selected == 0) {
-            if(un1 == "bit") {
-                converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+            if(un1 == "bits") {
+                converted.bits = valNum
+				converted.bytes = valNum / 8
+				converted.kilobytes = valNum / 8000
+				converted.megabytes = valNum / 8000000
+				converted.gigabytes = valNum / 8000000000
+				converted.terabytes = valNum / 8000000000000
 				this.unit2 = converted[un2]
             }   
             else if(un1 == "bytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+				converted.bits = valNum * 8
+				converted.bytes = valNum
+				converted.kilobytes = valNum / 1000
+				converted.megabytes = valNum / 1000000
+				converted.gigabytes = valNum / 1000000000
+				converted.terabytes = valNum / 1000000000000
 				this.unit2 = converted[un2]
             }
             else if(un1 == "kilobytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+				converted.bits = valNum * 8000
+				converted.bytes = valNum * 1000
+				converted.kilobytes = valNum 
+				converted.megabytes = valNum / 1000
+				converted.gigabytes = valNum / 1000000
+				converted.terabytes = valNum / 1000000000
 				this.unit2 = converted[un2]
             }
             else if (un1 == "megabytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+				converted.bits = valNum * 8000000
+				converted.bytes = valNum * 1000000
+				converted.kilobytes = valNum * 1000
+				converted.megabytes = valNum 
+				converted.gigabytes = valNum / 1000
+				converted.terabytes = valNum / 1000000
 				this.unit2 = converted[un2]
             }
             else if (un1 == "gigabytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+				converted.bits = valNum * 8000000000
+				converted.bytes = valNum * 1000000000
+				converted.kilobytes = valNum * 1000000
+				converted.megabytes = valNum * 1000
+				converted.gigabytes = valNum 
+				converted.terabytes = valNum / 1000
 				this.unit2 = converted[un2]
             }
             else if (un1 == "terabytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+				converted.bits = valNum / 8000000000000
+				converted.bytes = valNum / 1000000000000
+				converted.kilobytes = valNum / 1000000000
+				converted.megabytes = valNum / 1000000
+				converted.gigabytes = valNum / 1000
+				converted.terabytes = valNum
 				this.unit2 = converted[un2]
             }
         }
         else if (selected == 1) {
-            if(un2 == "bit") {
-                converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+			if (un2 == "bits") {
+				converted.bits = valNum
+				converted.bytes = valNum / 8
+				converted.kilobytes = valNum / 8000
+				converted.megabytes = valNum / 8000000
+				converted.gigabytes = valNum / 8000000000
+				converted.terabytes = valNum / 8000000000000
 				this.unit1 = converted[un1]
-            }   
-            else if(un2 == "bytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+			}
+			else if (un2 == "bytes") {
+				converted.bits = valNum * 8
+				converted.bytes = valNum
+				converted.kilobytes = valNum / 1000
+				converted.megabytes = valNum / 1000000
+				converted.gigabytes = valNum / 1000000000
+				converted.terabytes = valNum / 1000000000000
 				this.unit1 = converted[un1]
-            }
-            else if(un2 == "kilobytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+			}
+			else if (un2 == "kilobytes") {
+				converted.bits = valNum * 8000
+				converted.bytes = valNum * 1000
+				converted.kilobytes = valNum
+				converted.megabytes = valNum / 1000
+				converted.gigabytes = valNum / 1000000
+				converted.terabytes = valNum / 1000000000
 				this.unit1 = converted[un1]
-            }
-            else if (un2 == "megabytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+			}
+			else if (un2 == "megabytes") {
+				converted.bits = valNum * 8000000
+				converted.bytes = valNum * 1000000
+				converted.kilobytes = valNum * 1000
+				converted.megabytes = valNum
+				converted.gigabytes = valNum / 1000
+				converted.terabytes = valNum / 1000000
 				this.unit1 = converted[un1]
-            }
-            else if (un2 == "gigabytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+			}
+			else if (un2 == "gigabytes") {
+				converted.bits = valNum * 8000000000
+				converted.bytes = valNum * 1000000000
+				converted.kilobytes = valNum * 1000000
+				converted.megabytes = valNum * 1000
+				converted.gigabytes = valNum
+				converted.terabytes = valNum / 1000
 				this.unit1 = converted[un1]
-            }
-            else if (un2 == "terabytes") {
-				converted.bits =
-				converted.bytes =
-				converted.kilobytes =
-				converted.megabytes =
-				converted.gigabytes =
-				converted.terabytes = 
+			}
+			else if (un2 == "terabytes") {
+				converted.bits = valNum / 8000000000000
+				converted.bytes = valNum / 1000000000000
+				converted.kilobytes = valNum / 1000000000
+				converted.megabytes = valNum / 1000000
+				converted.gigabytes = valNum / 1000
+				converted.terabytes = valNum
 				this.unit1 = converted[un1]
-            }
+			}
         }
         else return
     }

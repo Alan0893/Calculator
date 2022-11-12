@@ -82,115 +82,115 @@ class Calculator {
 
         if(selected == 0) {
             if(un1 == "milliseconds") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
+                converted.milliseconds = valNum
+				converted.seconds = valNum / 1000
+				converted.minutes = valNum / 60000
+				converted.hours = valNum / 3600000
+				converted.days = valNum / 86400000
+				converted.weeks = valNum / 604800000
                 this.unit2 = converted[un2]
             }   
             else if(un1 == "seconds") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
+                converted.milliseconds = valNum * 1000
+				converted.seconds = valNum
+				converted.minutes = valNum / 60
+				converted.hours = valNum / 3600
+				converted.days = valNum / 86400
+				converted.weeks = valNum / 604800
                 this.unit2 = converted[un2]
             }
             else if(un1 == "minutes") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
+                converted.milliseconds = valNum * 60000
+				converted.seconds = valNum * 60
+				converted.minutes = valNum 
+				converted.hours = valNum / 60
+				converted.days = valNum / 1440
+				converted.weeks = valNum / 10080
                 this.unit2 = converted[un2]
             }
             else if (un1 == "hours") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
+                converted.milliseconds = valNum * 3600000
+				converted.seconds = valNum * 3600
+				converted.minutes = valNum * 60
+				converted.hours = valNum
+				converted.days = valNum / 24
+				converted.weeks = valNum / 168
                 this.unit2 = converted[un2]
             }
             else if (un1 == "days") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
+                converted.milliseconds = valNum * 86400000
+				converted.seconds = valNum * 86400
+				converted.minutes = valNum * 1440
+				converted.hours = valNum * 24
+				converted.days = valNum
+				converted.weeks = valNum / 7
                 this.unit2 = converted[un2]
             }
             else if (un1 == "weeks") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
+                converted.milliseconds = valNum * 604800000
+				converted.seconds = valNum * 604800
+				converted.minutes = valNum * 10080
+				converted.hours = valNum * 168
+				converted.days = valNum * 7
+				converted.weeks = valNum
                 this.unit2 = converted[un2]
             }
         }
         else if (selected == 1) {
-            if(un2 == "milliseconds") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
-                this.unit1 = converted[un1]
-            }   
-            else if(un2 == "seconds") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
-                this.unit1 = converted[un1]
-            }
-            else if(un2 == "minutes") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "hours") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "days") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "weeks") {
-                converted.milliseconds = 
-				converted.seconds = 
-				converted.minutes = 
-				converted.hours = 
-				converted.days = 
-				converted.weeks =
-                this.unit1 = converted[un1]
-            }
+			if (un2 == "milliseconds") {
+				converted.milliseconds = valNum
+				converted.seconds = valNum / 1000
+				converted.minutes = valNum / 60000
+				converted.hours = valNum / 3600000
+				converted.days = valNum / 86400000
+				converted.weeks = valNum / 604800000
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "seconds") {
+				converted.milliseconds = valNum * 1000
+				converted.seconds = valNum
+				converted.minutes = valNum / 60
+				converted.hours = valNum / 3600
+				converted.days = valNum / 86400
+				converted.weeks = valNum / 604800
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "minutes") {
+				converted.milliseconds = valNum * 60000
+				converted.seconds = valNum * 60
+				converted.minutes = valNum
+				converted.hours = valNum / 60
+				converted.days = valNum / 1440
+				converted.weeks = valNum / 10080
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "hours") {
+				converted.milliseconds = valNum * 3600000
+				converted.seconds = valNum * 3600
+				converted.minutes = valNum * 60
+				converted.hours = valNum
+				converted.days = valNum / 24
+				converted.weeks = valNum / 168
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "days") {
+				converted.milliseconds = valNum * 86400000
+				converted.seconds = valNum * 86400
+				converted.minutes = valNum * 1440
+				converted.hours = valNum * 24
+				converted.days = valNum
+				converted.weeks = valNum / 7
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "weeks") {
+				converted.milliseconds = valNum * 604800000
+				converted.seconds = valNum * 604800
+				converted.minutes = valNum * 10080
+				converted.hours = valNum * 168
+				converted.days = valNum * 7
+				converted.weeks = valNum
+				this.unit1 = converted[un1]
+			}
         }
         else return
     }

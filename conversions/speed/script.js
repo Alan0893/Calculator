@@ -63,8 +63,8 @@ class Calculator {
      * @description Converts the current unit
      */
     convert(select1, select2) {
-        const un1 = select1.options[select1.selectedIndex].value.toLowerCase().replace(' ','_')
-        const un2 = select2.options[select2.selectedIndex].value.toLowerCase().replace(' ', '_')
+		const un1 = select1.options[select1.selectedIndex].value.toLowerCase().replace(/ /g, "_")
+		const un2 = select2.options[select2.selectedIndex].value.toLowerCase().replace(/ /g, "_")
         const selected = this.selected
         var valNum = 0
         if(selected == 0) valNum = parseFloat(this.unit1)
@@ -73,7 +73,7 @@ class Calculator {
 
         var converted = {
             miles_per_hour: 0,
-			feets_per_second: 0,
+			feet_per_second: 0,
 			meters_per_second: 0,
 			kilometers_per_second: 0,
 			knots: 0
@@ -81,87 +81,87 @@ class Calculator {
 
         if(selected == 0) {
             if(un1 == "miles_per_hour") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
+                converted.miles_per_hour = valNum
+				converted.feet_per_second = valNum * 1.467
+				converted.meters_per_second = valNum / 2.237
+				converted.kilometers_per_second = valNum * 1.609
+				converted.knots = valNum / 1.151
                 this.unit2 = converted[un2]
             }   
-            else if(un1 == "feets_per_second") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
+            else if(un1 == "feet_per_second") {
+                converted.miles_per_hour = valNum / 1.467
+				converted.feet_per_second = valNum
+				converted.meters_per_second = valNum / 3.281
+				converted.kilometers_per_second = valNum * 1.097
+				converted.knots = valNum / 1.688
                 this.unit2 = converted[un2]
             }
             else if(un1 == "meters_per_second") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
+                converted.miles_per_hour = valNum * 2.237
+				converted.feet_per_second = valNum * 3.281
+				converted.meters_per_second = valNum
+				converted.kilometers_per_second = valNum * 3.6
+				converted.knots = valNum * 1.944
                 this.unit2 = converted[un2]
             }
             else if (un1 == "kilometers_per_second") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
+                converted.miles_per_hour = valNum / 1.609
+				converted.feet_per_second = valNum / 1.097
+				converted.meters_per_second = valNum / 3.6
+				converted.kilometers_per_second = valNum
+				converted.knots = valNum / 1.852
                 this.unit2 = converted[un2]
             }
             else if (un1 == "knots") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
+                converted.miles_per_hour = valNum * 1.151
+				converted.feet_per_second = valNum * 1.688
+				converted.meters_per_second = valNum / 1.944
+				converted.kilometers_per_second = valNum * 1.852
+				converted.knots = valNum
                 this.unit2 = converted[un2]
             }
         }
         else if (selected == 1) {
-            if(un2 == "miles_per_hour") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
-                this.unit1 = converted[un1]
-            }   
-            else if(un2 == "feets_per_second") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
-                this.unit1 = converted[un1]
-            }
-            else if(un2 == "meters_per_second") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "kilometers_per_second") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
-                this.unit1 = converted[un1]
-            }
-            else if (un2 == "knots") {
-                converted.miles_per_hour = 
-				converted.feets_per_second = 
-				converted.meters_per_second = 
-				converted.kilometers_per_second = 
-				converted.knots = 
-                this.unit1 = converted[un1]
-            }
+			if (un2 == "miles_per_hour") {
+				converted.miles_per_hour = valNum
+				converted.feet_per_second = valNum * 1.467
+				converted.meters_per_second = valNum / 2.237
+				converted.kilometers_per_second = valNum * 1.609
+				converted.knots = valNum / 1.151
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "feet_per_second") {
+				converted.miles_per_hour = valNum / 1.467
+				converted.feet_per_second = valNum
+				converted.meters_per_second = valNum / 3.281
+				converted.kilometers_per_second = valNum * 1.097
+				converted.knots = valNum / 1.688
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "meters_per_second") {
+				converted.miles_per_hour = valNum * 2.237
+				converted.feet_per_second = valNum * 3.281
+				converted.meters_per_second = valNum
+				converted.kilometers_per_second = valNum * 3.6
+				converted.knots = valNum * 1.944
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "kilometers_per_second") {
+				converted.miles_per_hour = valNum / 1.609
+				converted.feet_per_second = valNum / 1.097
+				converted.meters_per_second = valNum / 3.6
+				converted.kilometers_per_second = valNum
+				converted.knots = valNum / 1.852
+				this.unit1 = converted[un1]
+			}
+			else if (un2 == "knots") {
+				converted.miles_per_hour = valNum * 1.151
+				converted.feet_per_second = valNum * 1.688
+				converted.meters_per_second = valNum / 1.944
+				converted.kilometers_per_second = valNum * 1.852
+				converted.knots = valNum
+				this.unit1 = converted[un1]
+			}
         }
         else return
     }
@@ -171,7 +171,7 @@ class Calculator {
      * @param {float} number 
      */
     getDisplayNumber(number) {
-        const stringNumber = number.toString()
+        const stringNumber = "" + number
         const integerDigits = parseFloat(stringNumber.split('.')[0])
         const decimalDigits = stringNumber.split('.')[1]
         let integerDisplay
